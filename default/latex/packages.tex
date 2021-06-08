@@ -74,8 +74,7 @@
 
 % Floats innerhalb einer Section halten
 \usepackage[
-  section, % Floats innerhalb der Section halten
-  below,   % unterhalb der Section aber auf der selben Seite ist ok
+  section % Floats innerhalb der Section halten
 ]{placeins}
 
 % Seite drehen für breite Tabellen: landscape Umgebung
@@ -137,13 +136,13 @@
 
 % Floats innerhalb einer Subsection halten: 
 % Hierfür muss in Zeile 78 das below, gelöscht werden
-%\makeatletter
-%\AtBeginDocument{%
-%  \expandafter\renewcommand\expandafter\subsection\expandafter{%
-%    \expandafter\@fb@secFB\subsection
-%  }%
-%}
-%\makeatother
+\makeatletter
+\AtBeginDocument{%
+ \expandafter\renewcommand\expandafter\subsection\expandafter{%
+   \expandafter\@fb@secFB\subsection
+ }%
+}
+\makeatother
 
 % um "Overfull \hbox" zu debuggen
 %\usepackage{lua-visual-debug}

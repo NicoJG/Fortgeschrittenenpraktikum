@@ -22,6 +22,7 @@
 \begin{table}
     \centering
     \caption{Messergebnisse der Dopplerverschiebung}
+    \label{tab:dopplerver}
     \begin{tabular}{S[table-format=1.1] S[table-format=3.0] S[table-format=3.0] S[table-format=4.0]}
         \toprule
         \tableSI{\dot{v}}{\frac{\liter}{\minute}} & \tableSI{\Delta \nu _{15}}{\hertz} &\tableSI{\Delta \nu _{30}}{\hertz} & \tableSI{\Delta \nu _{60}}{\hertz}  \\
@@ -33,5 +34,45 @@
         5.0 & 470 & 850 & 1510\\
         \bottomrule
     \end{tabular}
-    \label{tab:dopplerver}
+\end{table}
+
+% lange schmale Tabelle aufteilen
+\begin{table}
+  \centering
+  \caption{Messergebnisse der Eichung des Elektromagneten}
+  \label{tab:magnet}
+  \begin{tabular}{S[table-format=1.1] S[table-format=3.0]}
+      \toprule
+      \tableSI{I}{\ampere} & \tableSI{B}{\milli\tesla} \\
+      \midrule
+      0.0 & 6 \\
+      0.5 & 52 \\
+      1.0 & 97 \\
+      1.5 & 142 \\
+      2.0 & 188 \\
+      2.5 & 233 \\
+      3.0 & 280 \\
+      3.5 & 322 \\
+      4.0 & 365 \\
+      4.5 & 404 \\
+      5.0 & 439 \\
+      \bottomrule
+  \end{tabular}
+  \begin{tabular}{S[table-format=1.1] S[table-format=3.0]}
+      \toprule
+      \tableSI{I}{\ampere} & \tableSI{B}{\milli\tesla} \\
+      \midrule
+      5.0 & 439 \\
+      4.5 & 409 \\
+      4.0 & 372 \\
+      3.5 & 331 \\
+      3.0 & 287 \\
+      2.5 & 240 \\
+      2.0 & 195 \\
+      1.5 & 149 \\
+      1.0 & 102 \\
+      0.5 & 54 \\
+      0.0 & 7 \\
+      \bottomrule
+  \end{tabular}
 \end{table}
