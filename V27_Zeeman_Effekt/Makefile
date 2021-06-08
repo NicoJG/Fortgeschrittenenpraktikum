@@ -1,11 +1,11 @@
 all: build/main.pdf
 
 # hier alle zu erstellenden Plots
-plots: build/plot_NAME.pdf
+plots: build/plot_magnet.pdf
 
 # für jeden zu erstellenden Plot:
-build/plot_NAME.pdf: python/plot1.py data/*.csv | build
-	python python/plot1.py
+build/plot_magnet.pdf: python/magnet.py data/*.csv | build
+	python python/magnet.py
 
 build/main.pdf: plots
 
