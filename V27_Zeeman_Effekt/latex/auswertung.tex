@@ -1,3 +1,67 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Magnetfeldbestimmung}
+\label{ssec:Magnetfeldbestimmung}
+
+Die auf- und absteigende Messung der Magnetfeldstärke $B$ je nach Stromstärke $I$ ergibt die Werte in \autoref{tab:magnet}.
+
+% mit \tableSI
+\begin{table}
+    \centering
+    \caption{Messergebnisse der Eichung des Elektromagneten}
+    \label{tab:magnet}
+    \begin{tabular}{S[table-format=1.1] S[table-format=3.0]}
+        \toprule
+        \tableSI{I}{\ampere} & \tableSI{B}{\milli\tesla} \\
+        \midrule
+        0.0 & 6 \\
+        0.5 & 52 \\
+        1.0 & 97 \\
+        1.5 & 142 \\
+        2.0 & 188 \\
+        2.5 & 233 \\
+        3.0 & 280 \\
+        3.5 & 322 \\
+        4.0 & 365 \\
+        4.5 & 404 \\
+        5.0 & 439 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{S[table-format=1.1] S[table-format=3.0]}
+        \toprule
+        \tableSI{I}{\ampere} & \tableSI{B}{\milli\tesla} \\
+        \midrule
+        5.0 & 439 \\
+        4.5 & 409 \\
+        4.0 & 372 \\
+        3.5 & 331 \\
+        3.0 & 287 \\
+        2.5 & 240 \\
+        2.0 & 195 \\
+        1.5 & 149 \\
+        1.0 & 102 \\
+        0.5 & 54 \\
+        0.0 & 7 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Diese Werte sind in \autoref{fig:plot_magnet} veranschaulicht. 
+Ebenfalls wird eine Ausgleichsrechnung mithilfe von
+\begin{equation}
+    I(B) = a \cdot B + b
+\end{equation}
+und der Funktion curve\_fit aus der Python Bibliothek SciPy durchgeführt. \cite{scipy}
+Dies ergibt die Parameter
+\begin{align}
+    a &= \SI{88.0+-0.9}{\ampere\per\milli\tesla} \\
+    b &= \SI{12.5+-2.7}{\ampere} \, .
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_magnet.pdf}
+    \caption{Plot der Messwerte und Ausgleichsgerade der Magnetfeldmessung}
+    \label{fig:plot_magnet}
+\end{figure}
