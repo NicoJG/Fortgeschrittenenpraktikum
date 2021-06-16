@@ -24,8 +24,71 @@ Your setup should look like \autoref{fig:part1}.
 \end{figure}
 Now we increase the current of the laser, until spreckles are visible on the card. 
 The laser is now lasing. 
-
+Take a picture of the monitor where the laser is lasing and one where its not.
 Something about gain or so.
 
 \subsection{Calibration of the absorption wavelength}
 \label{ssec:exe2}
+
+First we take the IR Card away and let the laser go into the Rubidium cell. 
+Then you rearrange the camera, so it looks directly in the side hole of the cell. 
+For optimum results you should also dim the lights, so that no other light source may influence the photodiode.
+You also need to reduce the intesity of the laser or your photodiode will not show the wanted result, so you put different filters right after the laser.
+Now you need to set up the oscilloscope for the calibration, for that you need to recreate the setup in \autoref{fig:osci1}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/generator.png}
+    \caption{Setup of the oscilloscope for the calibration \cite{V60}}
+    \label{fig:osci1}
+\end{figure}
+After that your experiment should look like \autoref{fig:part2}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/part2.png}
+    \caption{Experiment when calibrating the absorption wavelength \cite{V60}}
+    \label{fig:part2}
+\end{figure}
+Set the ramp generator frequency to $\SI{10}{\hertz}$ and calibrate the settings so that the ramp generator produses a large-amplitude triangle wave.
+Then you can start adjusting the laser current of the diode laser.
+When the Rubidium cell stars emitting light in a consistant strengh you found the right frequency.
+Take a photo of the camera monitore.
+On the oscilloscope you should now see mode hops.
+In the next part we will try to eliminate them through simultaneous usage of current and piezo modulation.
+
+\subsection{The absorption spectrum}
+\label{ssec:exe3}
+
+To get rid of the mode hops and to see a good picture of the absorption spectrum we change the setup of the experiment. 
+First of we rearrange the cables on the oscilloscope to what is shown in \autoref{fig:osci2}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/generator2.png}
+    \caption{Setup of the oscilloscope for the absorption spectrum \cite{V60}}
+    \label{fig:osci2}
+\end{figure}
+Now we want do produce a better picture of the spectrum. 
+You turn the ramp generator amplitude up to maximum and follow that up with turning up the current attenuator knob.
+You should be able to use all the knobs and calibrations to make a picture like in \autoref{fig:osci3}, but here it is inverted.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/oszi.png}
+    \caption{Picture of the absorption lines without mode hops \cite{V60}}
+    \label{fig:osci3}
+\end{figure}
+Cleary this is not the optimal figure.
+The scan of the laser intensity and the laser frequency are scanned together here, but we can correct that.
+We add a second photodiode on the optical breadboard.
+Put a 50/50 Beam splitter in front of the Rubidium cell and place the second photodiode in its path, like shown in \autoref{fig:part3}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/part3.png}
+    \caption{Final setup of the optical breadboard \cite{V60}}
+    \label{fig:part3}
+\end{figure}
+After final adjustments the final figure on the oscilloscope should be spectrum shown in \autoref{fig:oszi4}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/oszi2.png}
+    \caption{Absorption spectrum of rubidium \cite{V60}}
+    \label{fig:osci4}
+\end{figure}
