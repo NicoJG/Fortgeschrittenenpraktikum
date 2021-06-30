@@ -81,6 +81,8 @@ for key in keys:
 
     g = d_lambda_mean*10**(-12)*h*c_licht/(mu_B*B*(lambda_[key]*10**(-9))**2)
 
+    Ergebnisse[key]['B[T]'] = B.n
+    Ergebnisse[key]['B_err[T]'] = B.s
     Ergebnisse[key]['g'] = g.n
     Ergebnisse[key]['g_err'] = g.s
 
