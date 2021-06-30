@@ -7,6 +7,9 @@ plots: build/plot_NAME.pdf
 build/plot_NAME.pdf: python/plot1.py data/*.csv | build
 	python python/plot1.py
 
+build/plot_NAME.pdf: python/plot2.py data/*.csv | build
+	python python/plot2.py	
+
 build/main.pdf: plots
 
 build/main.pdf: FORCE | build
