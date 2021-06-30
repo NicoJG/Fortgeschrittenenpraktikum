@@ -1,8 +1,8 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\subsection{Magnetfeldbestimmung}
-\label{ssec:Magnetfeldbestimmung}
+\subsection{Bestimmung der Magnetfeldstärke}
+\label{ssec:Bestimmung der Magnetfeldstärke}
 
 Die auf- und absteigende Messung der Magnetfeldstärke $B$ je nach Stromstärke $I$ ergibt die Werte in \autoref{tab:magnet}.
 
@@ -50,18 +50,29 @@ Die auf- und absteigende Messung der Magnetfeldstärke $B$ je nach Stromstärke 
 Diese Werte sind in \autoref{fig:plot_magnet} veranschaulicht. 
 Ebenfalls wird eine Ausgleichsrechnung mithilfe von
 \begin{equation}
-    I(B) = a \cdot B + b
+    B(I) = a \cdot I^2 + b \cdot I + c
 \end{equation}
 und der Funktion curve\_fit aus der Python Bibliothek SciPy durchgeführt. \cite{scipy}
 Dies ergibt die Parameter
 \begin{align}
-    a &= \SI{88.0+-0.9}{\ampere\per\milli\tesla} \\
-    b &= \SI{12.5+-2.7}{\ampere} \, .
+    a &= \SI{-2.3+-0.4}{\milli\tesla\per\ampere\squared} \\
+    b &= \SI{99.6+-2.1}{{\milli\tesla\per\ampere} \\
+    c &= \SI{3.7+-2.2}{\milli\tesla} \, .
 \end{align}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_magnet.pdf}
-    \caption{Plot der Messwerte und Ausgleichsgerade der Magnetfeldmessung}
+    \caption{Plot der Messwerte und Ausgleichskurve der Magnetfeldmessung}
     \label{fig:plot_magnet}
 \end{figure}
+
+
+\subsection{Bestimmung der Wellenlängenaufspaltung}
+\label{ssec:Bestimmung der Wellenlängenaufspaltung}
+
+Um nun aus den aufgenommenen Fotos des Interferenzmusters der Lummer-Gehrcke-Platte 
+die durch den Zeemann Effekt verursachte Wellenlängenaufspaltung zu bestimmen,
+werden die Fotos auf die Pixelabstände der Linien untersucht.
+
+Hierzu wird wie in \autoref{fig:}

@@ -26,30 +26,34 @@ except FileNotFoundError as err:
 I,B = np.genfromtxt('data/magnet.csv',delimiter=',',skip_header=1,unpack=True)
 
 # Ausgleichsrechnungs-Funktion
-def f(x,a,b):
-    return a*x+b
+def f(x,a,b,c):
+    return a*x**2+b*x+c
 
 # Ausgleichskurve berechnen
 params,pcov = curve_fit(f,I,B)
 # Parameter
 a = params[0]
 b = params[1]
+c = params[2]
 # Unsicherheiten
 a_err = np.absolute(pcov[0][0])**0.5
 b_err = np.absolute(pcov[1][1])**0.5
+c_err = np.absolute(pcov[2][2])**0.5
 
 # berechnete Werte in der Dictionary speichern (am besten in Kategorien)
 if not 'Magnet' in Ergebnisse:
     Ergebnisse['Magnet'] = {}
 Ergebnisse['Magnet']['a'] = f'{a:.5f}'
 Ergebnisse['Magnet']['b'] = f'{b:.5f}'
+Ergebnisse['Magnet']['c'] = f'{c:.5f}'
 Ergebnisse['Magnet']['a_err'] = f'{a_err:.5f}'
 Ergebnisse['Magnet']['b_err'] = f'{b_err:.5f}'
+Ergebnisse['Magnet']['c_err'] = f'{c_err:.5f}'
 
 # Plotten
 # Plot der Ausgleichskurve
 I_linspace = np.linspace(np.min(I), np.max(I), 100)
-plt.plot(I_linspace, f(I_linspace,*params), 'k-', label='Ausgleichsgerade')
+plt.plot(I_linspace, f(I_linspace,*params), 'k-', label='Ausgleichskurve')
 # Plot der Daten
 plt.plot(I,B,'ro',label='Messwerte')
 

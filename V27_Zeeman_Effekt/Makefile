@@ -6,6 +6,7 @@ plots: build/plot_magnet.pdf
 # für jeden zu erstellenden Plot:
 build/plot_magnet.pdf: python/magnet.py data/*.csv | build
 	python python/magnet.py
+	python python/wellenlaengen.py
 
 build/main.pdf: plots
 
