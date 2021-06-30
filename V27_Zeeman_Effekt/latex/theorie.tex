@@ -127,15 +127,25 @@ Wobei $d$ und $n$ Parameter der Lummer-Gehrcke-Platte sind.
 Diese Einschränkung sorgt ebenfalls für eine obere Schranke des Magnetfeldes.
 Betrachtet man die Änderung der Frequenz $f$
 \begin{equation}
-    \delta f = \frac{X \cdot B \cdot \mu _\text{B}}{h} = - \frac{c \cdot \delta \lambda}{\lambda ^2},
+    \delta f = \frac{g_\text{i,j} \cdot B \cdot \mu _\text{B}}{h} = - \frac{c \cdot \delta \lambda}{\lambda ^2},
    \label{eq:freq}
 \end{equation}
 ergibt sich eine Relation für die Magnetfeldstärke $B$.
-Die Größe $X$ steht dabei für den Vorfaktor der energetischen Verschiebung.
-Dieser ist für verschiedene Wellenlänge und Übergänge unterschiedlich und ergibt sich aus dem gegebenen Problem. 
+Die Größe $g_\text{i,j}$ steht dabei für den Vorfaktor der energetischen Verschiebung und ist gegeben als
+\begin{equation}
+    g_\text{i,j} = m_\text{j} \cdot g_\text{j} - m_\text{i} \cdot g_\text{i}.
+   \label{eq:gij}
+\end{equation}
+Hier ist $g$ der Lande-Faktor und $m$ die magnetische Quantenzahl.
 Damit ergibt sich eine finale Formel für $B$
 \begin{equation}
-    B =  \frac{c}{\lambda ^2} \frac{\delta \lambda \cdot h}{X \cdot B \cdot \mu _\text{B}}.
+    B =  \frac{- c}{\lambda ^2} \frac{\delta \lambda \cdot h}{g_\text{i,j}  \cdot \mu _\text{B}}.
    \label{eq:bfeld}
 \end{equation}
 Für $\delta \lambda $ wird ein Viertel von $\Delta \lambda _\text{D}$ gewählt, damit die Unterschiede zwischen Aufspaltung der Linien und Abstände zwischen den Interferenzen erkennbar sind.
+
+In diesem Versuch werden zwei bestimmte optische Übergänge von Cadmium untersucht, die rote Linie mit Wellenlänge $\lambda = \SI{643.8}{\nano\meter}$ 
+und die blaue Linie mit $\lambda = \SI{480}{\nano\meter}$.
+Im Falle der roten Linie ist die Berechnung von $g_\text{i,j}$ recht einfach, da es immer drei aufgespaltene Linien gibt mit $g_\text{i,j} = -1, 0, 1$.
+Werden alle Übergänge der blauen Linie summiert ergeben sich sechs Linien, $g_\text{i,j} = -2.0, -1.5, -0.5, 0.5, 1.5, 2.0$.
+Allerdings sind sich zwei der Linien so nahe, dass sie eher als eine $g_\text{i,j} = -1.75, -0.5, 0.5, 1.75$ Aufspaltung erscheint.
