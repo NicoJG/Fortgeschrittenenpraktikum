@@ -9,7 +9,7 @@ Die erste Unterscheidung ist das Energieniveau. Dieses wird von der Hauptquanten
 Somit haben alle Elektronen mit der gleichen Hauptquantenzahl auch die gleiche Grundenergie.
 Die Energie eines Elektrons $E_n$ auf der n-ten Schale ist gegeben durch
 \begin{equation}
-    E_n = - R_\text{y} \cdot Z^2 \cdot \frac{1}{n^2}.
+    E_n = - R_\text{y} \cdot Z^2 \cdot \frac{1}{n^2} \, .
     \label{eq:n}
 \end{equation}
 Dabei ist $R_\text{y}$ die Rydbergenergie mit $ R_\text{y} = \SI{13.6}{\electronvolt}$ und $Z$ die Ordnungszahl des Elements.
@@ -23,9 +23,10 @@ Die letzte Quantenzahl ist die Spinquantenzahl $s$.
 Sie beschreibt im klassischen Bild eine Art Eigendrehimpuls des Elektrons.
 
 Nun ist es möglich ein Atom energetisch anzuregen und somit Elektronen auf höhere Niveaus zu heben.
-Diesen Zustand halten sie allerdings nicht lange und sie fallen wieder auf ein niederenergetisches Niveau zurück, die Energie der dabei freigesetzten Photonen beträgt 
+Diesen Zustand halten sie allerdings nicht lange und sie fallen wieder auf ein niederenergetisches Niveau zurück
+Die Energie der dabei freigesetzten Photonen beträgt 
 \begin{equation}
-    E_m - E_n = - R_\text{y} \cdot Z^2 \cdot \left( \frac{1}{m^2} - \frac{1}{n^2} \right).
+    E_m - E_n = - R_\text{y} \cdot Z^2 \cdot \left( \frac{1}{m^2} - \frac{1}{n^2} \right) \, .
     \label{eq:energiediff}
 \end{equation}
 Die Wellenlänge $\lambda$ der Photonen ist über
@@ -41,27 +42,28 @@ gegeben. $h$ ist das Plancksche Wirkungsquantum, $E$ die schon bekannte Energie 
 
 Die Energiestrukur eines Atoms ist komplizierter als eine bloße Abhängigkeit von $n$.
 Der erste Einfluss ist die sogenannte Spin-Bahn-Kopplung.
-Grob erklärt erzeugt das Elektron auf seiner Bahn um den Atomkern ein schwaches Magentfeld, da alle beschleunigten Ladungen ein solchen erzeugen.
-Das magnetische Moment des Elektrons wechselwirkt nun damit, vereinfacht gesagt und erzeugt eine Korrektur des Energieterms. 
-Im Zuge der Spin-Bahn-Kopplung wird ein Gesamtdrehimpuls $J = l + s$ definiert.
+Grob erklärt, erzeugt das Elektron auf seiner Bahn um den Atomkern ein schwaches Magentfeld, da alle beschleunigten Ladungen ein solches erzeugen.
+Das magnetische Moment des Elektrons wechselwirkt nun mit diesem Magnetfeld und erzeugt eine Korrektur des Energieterms. 
+Wegen der Spin-Bahn-Kopplung wird ein Gesamtdrehimpuls $J = l + s$ definiert.
 Die Energiekorrektur beträgt dann 
 \begin{equation}
     E_{n,l,j,s} = E_n + \frac{a}{2} \cdot \left( j(j+1) - l(l+1) - s(s+1) \right)
    \label{eq:spinbahn}
 \end{equation}
-mit der Spin-Bahn-Kopplungskonstate $a$.
+mit der Spin-Bahn-Kopplungskonstante $a$.
 
 \subsection{Der normale Zeeman-Effekt}
 \label{ssec:theo3}
 
-Für den normalen Zeeman-Effekt wird ein Atom ohne Gesamtspin, $S = 0$ , betrachtet. 
-Nun wird ein externes Magentfeld mit der Stärke $B$ eingeschaltet, üblicherweise in Z-Richtung. 
-Aufgrund der verschiedenen Magnetquantenzahlen $m$ werden sich die Elektronen anders verhalten, je höher $m$ je größer ist der Energiegewinn.
-Die Entartung der Elektronen wird also aufgehoben und das Spektrum spaltet sich auf.
-Die Anzahl der Aufspaltungen beträgt dabei $2 J + 1$, hierbei ist $J = L$.
+Für den normalen Zeeman-Effekt wird ein Atom ohne Gesamtspin ($S = 0$) betrachtet. 
+Nun wird ein externes Magentfeld mit der Stärke $B$ eingeschaltet. 
+Üblicherweise ist dieses Magnetfeld homogen in Z-Richtung. 
+Aufgrund der verschiedenen Magnetquantenzahlen $m$ werden sich die Elektronen anders verhalten. Je höher $m$ ist, desto größer ist der Energiegewinn.
+Die Entartung der Elektronen in $m$ wird also aufgehoben und das Spektrum spaltet sich auf.
+Die Anzahl der Niveauaufspaltungen beträgt dabei $2 J + 1$, hierbei ist $J = L$.
 Der Energiegewinn jedes einzelnen Zustandes ist genau 
 \begin{equation}
-    \Delta E = m \cdot \mu_B \cdot B.
+    \Delta E = m \cdot \mu_B \cdot B \, .
    \label{eq:normzeeman}
 \end{equation}
 Dabei ist $\mu_B$ das bohrsche Magneton $\mu_B = \SI{9.274}{\joule\per\tesla}$.
@@ -69,14 +71,14 @@ Dabei ist $\mu_B$ das bohrsche Magneton $\mu_B = \SI{9.274}{\joule\per\tesla}$.
 \subsection{Der anomale Zeeman-Effekt}
 \label{ssec:theo4}
 
-Das grundlegende Prinzip ist beim anomale Zeeman-Effekt das gleiche wie beim Normalen, allerdings liegt ein Gesamtspin ungleich $0$ vor.
+Das grundlegende Prinzip beim anomale Zeeman-Effekt ist das gleiche wie beim normalen Zeeman-Effekt, allerdings liegt ein Gesamtspin $S \neq 0$ vor.
 Dadurch ist die Verschiebung der Nivaus nicht mehr gleichmäßig, sondern zusätzlich durch den Landé-Faktor $g_j$ verändert. 
 Dieser ergibt sich aus 
 \begin{equation}
-    g_j = 1 + \frac{j(j+1) + s(s+1) - l(l+1) }{2 \cdot j(j+1)}.
+    g_j = 1 + \frac{j(j+1) + s(s+1) - l(l+1) }{2 \cdot j(j+1)} \, .
    \label{eq:lande}
 \end{equation}
-Für den spezalfall des normalen Zeeman-Effekts ist dieser also 1.
+Für den Spezialfall des normalen Zeeman-Effekts ist also $g_j=1$.
 Die Verschiebung der Energienivaus ist hier
 \begin{equation}
     \Delta E = g_j \cdot m \cdot \mu_B \cdot B.
@@ -89,21 +91,22 @@ Die Verschiebung der Energienivaus ist hier
 Wie bereits erwähnt, folgt aus der Anregung eines Atoms eine Emission eines Photons.
 Die Photonenenergie ist die Differenz der beiden Niveaus.
 Nun existieren aber viel mehr Nivaus als vorher, somit sind neue Energien als Emission möglich. 
-In der Theorie sollten alle Nivaus auf niedere Nivaus abfallen können, aber in der Realität sind nicht alle diese Sprünge erlaubt.
+Theoretisch sollten alle Elektronen auf niedrigere Nivaus abfallen können, aber in der Realität sind nicht alle diese Sprünge erlaubt.
 Die sogenannten Auswahlregeln fassen zusammen, welche Übergänge möglich sind und welche nicht.
 Ein paar dieser Regeln sind gegeben durch
 \begin{itemize} 
     \item $\Delta l = \pm 1$
     \item $\Delta J = 0, \pm 1$
-    \item $\Delta m = 0, \pm 1$.
+    \item $\Delta m = 0, \pm 1$ \, .
 \end{itemize}
-Allerdings sind Übergänge von $m = 0$ zu $m = 0$ nicht erlaubt.
+Allerdings sind Übergänge von $m = 0$ zu $m = 0$ oder von $J = 0$ zu $J = 0$ nicht erlaubt.
 
 Diese Auswahlregeln haben zur Folge, dass beim normalen Zeeman-Effekt genau drei verschiedene Wellenlängen auftreten. 
 Denn die Abstände sind äquidistant, somit treten genau drei verschiedene Energiewerte auf.
 Damit ist ebenfalls klar, dass es weit mehr Energien, also auch Wellenlängen, beim anomalen Zeeman-Effekt gibt.
 Dadurch, dass die Abstände zwischen den Niveaus nicht mehr gleich sind, entstehen trotz Auswahlregeln viele verschiedene Energiedifferenzen.
-Die Änderung in der Magnetquantenzahlen gibt ebenfalls Aufschluss über die Polarisation des Lichts, bei einer Änderung $\Delta m = 0$ ist das Licht linear polarisiert und andernfalls zirkular.
+Die Änderung in den Magnetquantenzahlen gibt ebenfalls Aufschluss über die Polarisation des Lichts. 
+Bei einer Änderung $\Delta m = 0$ ist das Licht linear polarisiert und bei $\Delta m = \pm 1$ ist es zirkular polarisiert.
 
 Somit ist die Folge des Zeeman-Effekts, dass sich das ehemals simplere Emissionspektrum nun aufspaltet.
 Diese Aufspaltung soll im Folgenden genauer untersucht werden. 
@@ -113,35 +116,35 @@ Diese Aufspaltung soll im Folgenden genauer untersucht werden.
 
 Für die spätere Durchführung wird eine Lummer-Gehrcke-Platte verwendet, diese besitzt ein Auflösungsvermögen $A$, dieses ist gegeben durch 
 \begin{equation}
-    A = \frac{L}{\lambda} \cdot \left( n^2 + 1 \right)
+    A = \frac{L}{\lambda} \cdot \left( n^2 + 1 \right) \, .
    \label{eq:aufloesung}
 \end{equation}
-Dabei sind $n$ und $L$ gegebene Parameter.
-Das besondere an der Lummer-Gehrcke-Platte ist die Eigenschaft aus monochromatischen Licht ein Interferenzmuster zu bilden, deren Gangunterschied exakt die eingestrahlte Wellenlänge beträgt.
-Somit führt eine Änderung der Wellenlänge $\delta \lambda$ zu einer Verschiebung im Interferenzbild  $\delta s$
+Dabei ist $n$ der Brechungsindex der Strahlung in der Lummer-Gehrcke-Platte und $L$ ist die Länge der Lummer-Gehrcke-Platte. 
+Das Besondere an der Lummer-Gehrcke-Platte ist die Eigenschaft aus monochromatischen Licht ein Interferenzmuster zu bilden, deren Gangunterschied exakt die eingestrahlte Wellenlänge beträgt.
+Somit führt eine Änderung der Wellenlänge $\delta \lambda$ zu einer Verschiebung $\delta s$ im Interferenzbild.
 Es muss darauf geachtet werden, dass sich die verschobenen Ordnungen nicht überlagern, daher wird ein Dispersionsgebiet $\Delta \lambda _\text{D}$ definiert, in dem alle Aufspaltungen stattfinden werden. 
 Sie ist definiert als 
 \begin{equation}
-    \Delta \lambda _\text{D} = \frac{\lambda ^2}{2 d} \cdot \sqrt{ \frac{1}{n^2 + 1}    }.
+    \Delta \lambda _\text{D} = \frac{\lambda ^2}{2 d} \cdot \sqrt{ \frac{1}{n^2 + 1}    } \, .
    \label{eq:dispers}
 \end{equation}
-Wobei $d$ und $n$ Parameter der Lummer-Gehrcke-Platte sind. 
+$d$ ist hier die Dicke der Lummer-Gehrcke-Platte.
 Diese Einschränkung sorgt ebenfalls für eine obere Schranke des Magnetfeldes.
 Betrachtet man die Änderung der Frequenz $f$
 \begin{equation}
-    \delta f = \frac{g_{i,j} \cdot B \cdot \mu_B }{h} = - \frac{c \cdot \delta \lambda}{\lambda ^2},
+    \delta f = \frac{g_{i,j} \cdot B \cdot \mu_B }{h} = - \frac{c \cdot \delta \lambda}{\lambda ^2} \, ,
    \label{eq:freq}
 \end{equation}
 ergibt sich eine Relation für die Magnetfeldstärke $B$.
 Die Größe $g_{i,j}$ steht dabei für den Vorfaktor der energetischen Verschiebung und ist gegeben als
 \begin{equation}
-    g_{i,j} = m_j \cdot g_j - m_i \cdot g_i.
+    g_{i,j} = m_j \cdot g_j - m_i \cdot g_i \, .
    \label{eq:gij}
 \end{equation}
-Hier ist $g$ der Lande-Faktor und $m$ die magnetische Quantenzahl.
+Hier ist $g$ der Landé-Faktor und $m$ die magnetische Quantenzahl.
 Damit ergibt sich eine finale Formel für $B$
 \begin{equation}
-    B =  \frac{- c}{\lambda ^2} \frac{\delta \lambda \cdot h}{g_{i,j}  \cdot \mu_B}.
+    B = - \frac{\delta \lambda}{\lambda ^2} \frac{h \cdot c}{g_{i,j}  \cdot \mu_B} \, .
    \label{eq:bfeld}
 \end{equation}
 Für $\delta \lambda $ wird ein Viertel von $\Delta \lambda _\text{D}$ gewählt, damit die Unterschiede zwischen Aufspaltung der Linien und Abstände zwischen den Interferenzen erkennbar sind.
@@ -150,4 +153,3 @@ In diesem Versuch werden zwei bestimmte optische Übergänge von Cadmium untersu
 und die blaue Linie mit $\lambda = \SI{480}{\nano\meter}$.
 Im Falle der roten Linie ist die Berechnung von $g_{i,j}$ recht einfach, da es immer drei aufgespaltene Linien gibt mit $g_{i,j} = -1, 0, 1$.
 Werden alle Übergänge der blauen Linie summiert ergeben sich sechs Linien, $g_{i,j} = -2.0, -1.5, -0.5, 0.5, 1.5, 2.0$.
-Allerdings sind sich zwei der Linien so nahe, dass sie eher als eine $g_{i,j} = -1.75, -0.5, 0.5, 1.75$ Aufspaltung erscheint.
