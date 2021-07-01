@@ -78,7 +78,7 @@ Dies ergibt die Parameter
 \subsection{Berechnung der Dispersionsgebiete}
 \label{ssec:Berechnung der Dispersionsgebiete}
 
-Zunächst müssen die Dispersionsgebiete $\Delta\lambda_D$ über \autoref{eq:dispers} berechnet werden.
+Zunächst müssen die Dispersionsgebiete $\Delta\lambda_\text{D}$ über \autoref{eq:dispers} berechnet werden.
 
 Die betrachteten Wellenlängen sind
 \begin{align*}
@@ -98,25 +98,25 @@ Die Abmessungen der verwendeten Lummer-Gehrcke-Platte sind
 
 Daraus folgen die Dispersionsgebiete
 \begin{align*}
-    \Delta\lambda_{D,\text{rot}} &= \SI{48.913}{\pico\meter} \\
-    \Delta\lambda_{D,\text{blau}} &= \SI{26.952}{\pico\meter} \, .
+    \Delta\lambda_\text{D,rot} &= \SI{48.913}{\pico\meter} \\
+    \Delta\lambda_\text{D,blau} &= \SI{26.952}{\pico\meter} \, .
 \end{align*}
 
 \subsection{Bestimmung der Wellenlängenaufspaltung}
 \label{ssec:Bestimmung der Wellenlängenaufspaltung}
 
-Aus den aufgenommenen Fotos des Interferenzmusters der Lummer-Gehrcke-Platte wird nun die durch den Zeemann Effekt verursachte Wellenlängenaufspaltung bestimmt.
+Aus den aufgenommenen Fotos des Interferenzmusters der Lummer-Gehrcke-Platte wird nun die, durch den Zeeman Effekt verursachte, Wellenlängenaufspaltung bestimmt.
 Die Fotos sind in \autoref{fig:rot}, \autoref{fig:blau_pi} und \autoref{fig:blau_sigma} dargestellt.
 
 In den Fotos werden die Abstände $\Delta s$ und $\delta s$ der Linien wie in \autoref{fig:bild} angedeutet in Pixeln gezählt.
 
 Mit diesen Werten kann nun über 
 \begin{equation}
-    \delta \lambda = \frac{1}{2}\cdot\frac{\delta s}{\Delta s}\cdot\Delta \lambda_D
+    \delta \lambda = \frac{1}{2}\cdot\frac{\delta s}{\Delta s}\cdot\Delta \lambda_\text{D}
     \label{eq:delta_lambda}
 \end{equation}
 die die Wellenlängenaufspaltung der einzelnen Linien berechnet werden.
-Die Dispersionsgebiete $\Delta\lambda_D$ werden aus \autoref{ssec:Berechnung der Dispersionsgebiete} entnommen.
+Die Dispersionsgebiete $\Delta\lambda_\text{D}$ werden aus \autoref{ssec:Berechnung der Dispersionsgebiete} entnommen.
 Aus den einzelnen Wellenlängenaufspaltungen $\delta \lambda$ wird dann der Mittelwert $\overline{\delta\lambda}$ berechnet.
 
 Die gemessenen Pixelabstände und die einzelnen Wellenlängenaufspaltungen sind in \autoref{tab:rot}, \autoref{tab:blau_pi} und \autoref{tab:blau_sigma} aufgelistet.
@@ -129,7 +129,7 @@ Hiermit ergeben sich die gemittelten Wellenlängenaufspaltungen zu
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/rot.png}
     \caption{Fotos der roten Spektrallinie vor (oben) und nach (unten) der Aufspaltung}
@@ -155,14 +155,14 @@ Hiermit ergeben sich die gemittelten Wellenlängenaufspaltungen zu
     \end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/blau_pi.png}
     \caption{Fotos der blauen $\pi$-Spektrallinie vor (oben) und nach (unten) der Aufspaltung}
     \label{fig:blau_pi}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Messergebnisse der blauen $\pi$-Spektrallinie mit Pixelabständen wie in \autoref{fig:bild} und Wellenlängenaufspaltungen nach \autoref{eq:delta_lambda}}
     \label{tab:blau_pi}
@@ -185,14 +185,14 @@ Hiermit ergeben sich die gemittelten Wellenlängenaufspaltungen zu
     \end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/blau_sigma.png}
     \caption{Fotos der blauen $\sigma$-Spektrallinie vor (oben) und nach (unten) der Aufspaltung}
     \label{fig:blau_sigma}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Messergebnisse der blauen $\sigma$-Spektrallinie mit Pixelabständen wie in \autoref{fig:bild} und Wellenlängenaufspaltungen nach \autoref{eq:delta_lambda}}
     \label{tab:blau_sigma}
