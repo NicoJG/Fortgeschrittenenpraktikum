@@ -69,21 +69,26 @@ plt.savefig('build/plot_Diff2.pdf')
 
 plt.clf()
 
+tau, A3 = np.genfromtxt('data/Diffusion.csv',delimiter=',',skip_header=2,unpack=True)
+
+tau = tau * 10**-3
+A3 = A3 * 10**-3
+
 # Ausgleichskurven Funktion (hier Ausgleichsgerade)
 def f(tau,a,b,c):
-    return (a * np.exp(-2*tau/1.696 ) * np.exp(-tau**3 / b) + c)
+    return (a * np.exp(-2*tau/1.696 ) * np.exp((- (tau)**3 )/ b) + c )
 
 # a = M0
 # b = TD
+# c = M1
 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(f,tau,A3,p0=(1,40,0.00001))
+params,pcov = curve_fit(f,tau,A3,p0=(1,0.0001,1)) 
 
 # Parameter
 a = params[0]
 b = params[1]
 c = params[2]
-
 
 # Unsicherheiten
 a_err = np.absolute(pcov[0][0])**0.5
@@ -112,3 +117,8 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
 # Plot als PDF speichern
 plt.savefig('build/plot_Diff3.pdf')
+#plt.show()
+
+#M0 = 58.52555606067647+-4.555093339838067
+#TD = 0.00864119572833222+-0.021287363559897667
+#M1 = -57.186032008791265+-4.5383188252000615
