@@ -1,3 +1,159 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Alle hier angegebenen Unsicherheiten wurden mit der Python Bibliothek Uncertainties berechnet.\cite{uncertainties}
+Diese Bibliothek basiert auf der Gauß'schen Fehlerfortpflanzung
+\begin{equation}
+    \Delta y = \sum_{i=1}^n \left| \frac{\delta f(x_1,...,x_n)}{\delta x_i} \right| \Delta x_i \, .
+    \label{eq:fehlerrechnung}
+\end{equation}
+
+Ziel dieser Auswertung ist es mit Hilfe der gepulsten Kernspinresonanz den Diffusionskoeffizienten $D$ zu errechnen. 
+Damit diese Berechnung gelingt werden zunächst die beiden Relaxationszeiten $T_1$ und $T_2$ berechnet.
+Als letzte Überprüfung der Auswertung wird der Molekülradius von Wasser über die gemessenen Werte bestimmt.
+
+\subsection{Bestimmung von $T_1$}
+\label{ssec:aus1}
+
+Für die Berechnung von $T_1$ wird zunächst ein $\SI{180}{\degree}$-Puls durchgeführt.
+Nach einer Zeitspanne $\tau$ folgt ein $\SI{90}{\degree}$-Puls. 
+Die danach gemessenen Spannungen $U$ sind für verschiedene Werte $\tau$ in \autoref{tab:t1} notiert. 
+
+\begin{table}
+    \centering
+    \caption{Gemessene Spannungen in Abhängigkeit von $\tau$}
+    \label{tab:t1}
+    \begin{tabular}{S[table-format=5.1] S[table-format=4.0]}
+        \toprule
+        \tableSI{\tau}{\milli\second} & \tableSI{U}{\milli\volt}  \\
+        \midrule
+        1.0 &  -1075  \\
+        1.6 & -1013 \\
+        2.6 & -994 \\
+        4.3 & -1000 \\
+        7.0 & -1075 \\
+        11.3 & -1037 \\
+        18.3 & -1012 \\
+        29.8 & -998 \\
+        48.3 & -956 \\
+        78.5 & -931 \\
+        127.0 & -888 \\
+        207.0 & -799 \\
+        336.0 & -708 \\
+        546.0 & -580 \\
+        886.0 & -415 \\
+        1440.0 & -201 \\
+        2340.0 & 66 \\
+        3000.0 & 117 \\
+        3800.0 & 309 \\
+        6160.0 & 508 \\
+        10000.0 & 545 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Anschließend werden diese Werte mit der Fit-Funktion 
+\begin{equation}
+    U(\tau) = a \cdot \exp(\frac{- \tau}{T_1}) + c 
+    \label{eq:fit_t1}
+\end{equation}
+gefittet.
+Dabei ergeben sich die Parameter 
+\begin{align*}
+    a =& \SI{-1.55(03)}{\volt} \\
+    T_1 =& \SI{1.93(12)}{\second} \\
+    c =& \SI{0.53(03)}{\volt} \, .
+\end{align*}
+Die Werte aus \autoref{tab:t1} sind in schließlich in \autoref{fig:t1} aufgetragen.
+$T_1$ ist damit direkt aus dem Fit als 
+\begin{equation}
+    T_1 = \SI{1.93(12)}{\second} 
+    \label{eq:t1_wert}
+\end{equation}
+bestimmt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_T1.pdf}
+    \caption{Plot der Messwerte zur Messsung von $T_1$ mit exponentiellem Fit und logarithmischer X-Achse}
+    \label{fig:t1}
+\end{figure}
+
+\subsection{Bestimmung von $T_2$}
+\label{ssec:aus2}
+
+Die vom Oszilloskop aufgenommenen Daten werden ebenfalls geplottet.
+Allerdings sind hier nur die Maxima der Oszillazion für die Auswertung relevant.
+Durch diese wird eine Fit-Funktion 
+\begin{equation}
+    U(\tau) = a \cdot \exp(\frac{- \tau}{T_2}) + c 
+    \label{eq:fit_t2}
+\end{equation}
+gelegt.
+Für diesen Fit werden die Parameter 
+\begin{align*}
+    a =& \SI{0.91(04)}{\volt} \\
+    T_2 =& \SI{1.70(16)}{\second} \\
+    c =& \SI{0.08(05)}{\volt} \, .
+\end{align*}
+bestimmt.
+Die geplotteten Werte sind dann zusammen mit der Fit-Funktion in \autoref{fig:t2} dargestellt.
+Auch hier die gesuchte Größe einer der gesuchen Parameter, sodass sich schlussendlich 
+\begin{equation}
+    T_2 = \SI{1.70(16)}{\second} 
+    \label{eq:t2_wert}
+\end{equation}
+ergibt.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_T2.pdf}
+    \caption{Plot der Messwerte zur Messsung von $T_2$ mit exponentiellem Fit}
+    \label{fig:t2}
+\end{figure}
+
+\subsection{Bestimmung des Diffusionskoeffizienten $D$}
+\label{ssec:aus3}
+
+Zur erfolgreichen Berechung von $D$ über GLEICHUNG VON NICO werden die Gradiantenstärke $G$ und die Zeitkonstante $T_\text{D}$ benötigt. 
+Diese beiden Größen werden im Folgenden bestimmt.
+
+Für die Berechnung der Gradiantenstärke $G$ wird das Oszillatorbild des Echos zunächst in \autoref{fig:echo} dargestellt.
+Die eigentliche Bestimmung kann aber erst nach einer Fouriertransformation stattfinden. 
+Alle Werte vor dem Maximum des Realteils werden hierbei verworfen.
+Die Fouriertransformierte ist \autoref{fig:fourier} stark vergrößert, da der Durchmesser $d_\text{f}$ des entstandenen Halbkreises benötigt wird.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{build/plot_Diff.pdf}
+        \caption{Echo bei $\tau = \SI{0.2}{\milli\second}$}
+        \label{fig:echo}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{build/plot_echo_Gradient.pdf}
+        \caption{Stark vergrößerte Fouriertransformation des Echos}
+        \label{fig:fourier}
+    \end{subfigure}
+    \caption{Aufgenommenes Echo mit entsprechender Fouriertransformation zur Bestimmung der Gradiantenstärke}
+    \label{fig:g_messung}
+\end{figure}
+
+Der Durchmesser des Halbkreises wird etwa als 
+\begin{equation}
+    d_\text{f} = \SI{13300}{\hertz} 
+    \label{eq:df}
+\end{equation}
+abgelesen.
+Über FORMEL AUS THEORIE kann dann $G$ 
+\begin{equation}
+    G = \frac{2 \pi \cdot d_\text{f}}{\gamma _\text{H} \cdot d} = \SI{0.071}{\tesla\per\meter}
+    \label{eq:g_wert}
+\end{equation}
+berechnet werden.
+Dabei sind
+\begin{align*}
+    \gamma _\text{H} =& \, \SI{268e6}{\radian\per\second\per\tesla} \\
+    d =& \, \SI{4.4}{\milli\meter} \, .
+\end{align*}
