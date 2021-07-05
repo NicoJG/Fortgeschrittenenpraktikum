@@ -17,10 +17,10 @@ import matplotlib.pyplot as plt
 t,A1,A2 = np.genfromtxt('data/G_Messung.csv',delimiter=',',skip_header=2,unpack=True)
 
 # Plot der Daten
-plt.plot(t, A1, 'r-', label='Realteil')
-plt.plot(t, A2, 'b-', linewidth = 0.5, label='Imaginärteil')
+plt.plot(t * 10**3, A1, 'r-', label='Realteil')
+plt.plot(t* 10**3, A2, 'b-', linewidth = 0.5, label='Imaginärteil')
 # Achsenbeschriftung mit LaTeX (nur wenn matplotlibrc benutzt wird)
-plt.xlabel(r'$t \:/\: \si{\second}$')
+plt.xlabel(r'$t \:/\: \si{\milli\second}$')
 plt.ylabel(r'$A \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich

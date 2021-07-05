@@ -44,19 +44,20 @@ T2_err = np.absolute(pcov[2][2])**0.5
 # z.B. mit print, aber besser als JSON Datei abspeichern
 
 
-#print(f'M0 = {M0}+-{M0_err}')
-#print(f'M1 = {M1}+-{M1_err}')
-#print(f'T2 = {T2}+-{T2_err}')
+print(f'M0 = {M0}+-{M0_err}')
+print(f'T2 = {T2}+-{T2_err}')
+print(f'M1 = {M1}+-{M1_err}')
+
 
 # Plot der Ausgleichskurve
 x_linspace = np.linspace(np.min(t[M_max]), np.max(t[M_max]), 100)
-plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Ausgleichskurve')
+plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Exponentielle Ausgleichskurve')
 # Plot der Daten
-plt.plot(t, M, 'r.', label='Daten')
-plt.plot(t[M_max], M[M_max], 'b.', label='Maxima')
+plt.plot(t, M, 'b-', linewidth = 0.5, label='Spannung')
+plt.plot(t[M_max], M[M_max], 'r.', label='Maxima der Spannung')
 # Achsenbeschriftung mit LaTeX (nur wenn matplotlibrc benutzt wird)
 plt.xlabel(r'$t \:/\: \si{\second}$')
-plt.ylabel(r'$M \:/\: \si{\volt}$')
+plt.ylabel(r'$U \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
 plt.legend()
@@ -83,7 +84,7 @@ def f(tau,U0,U1,T1):
 #f = lambda x,a,b: a*x + b
 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(f,tau,A)
+params,pcov = curve_fit(f,tau,A,p0=(-1,1,0.5))
 
 # Parameter
 U0 = params[0]
@@ -105,9 +106,9 @@ T1_err = np.absolute(pcov[2][2])**0.5
 
 # Plot der Ausgleichskurve
 x_linspace = np.linspace(np.min(tau), np.max(tau), 100)
-plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Ausgleichskurve')
+plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Exponentielle Ausgleichskurve')
 # Plot der Daten
-plt.plot(tau, A, 'ro', label='Daten')
+plt.plot(tau, A, 'ro', label='Spannung')
 plt.semilogx()
 # Achsenbeschriftung mit LaTeX (nur wenn matplotlibrc benutzt wird)
 plt.xlabel(r'$t \:/\: \si{\second}$')
@@ -120,6 +121,6 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 # Plot als PDF speichern
 plt.savefig('build/plot_T1.pdf')
 
-#U0 = -1.5452810206322474+-0.03376613696760751
-#U1 = 0.5347193284834235+-0.03339016971699088
-#T1 = 1.9259867667071824+-0.1152920192178112
+#U0 = -1.5452811230393828+-0.0337661937832072
+#U1 = 0.5347194520934632+-0.03339023242461304
+#T1 = 1.9259873137661128+-0.11529234563368615
