@@ -39,7 +39,9 @@ plt.savefig("build/plot_echo_Gradient.pdf")
 
 G = 2 * np.pi * 13300 / (268 * 10**6 * 4.4 * 10**-3)
 
+#print("G:", G)
+
 b = ufloat(0.00864,0.02129)
 
 D = 3/((268 * 10**6)**2 * b * G**2 * 2)
-print("D:", D)
+#print("D:", D)
