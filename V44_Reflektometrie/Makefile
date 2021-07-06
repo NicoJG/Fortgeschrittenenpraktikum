@@ -1,11 +1,11 @@
 all: build/main.pdf
 
 # hier alle zu erstellenden Plots
-plots: build/plot_NAME.pdf
+plots: build/plot_detektorscan.pdf
 
 # für jeden zu erstellenden Plot:
-build/plot_NAME.pdf: python/plot1.py data/*.csv | build
-	python python/plot1.py
+build/plot_detektorscan.pdf: python/justierung.py | build
+	python python/justierung.py
 
 build/main.pdf: plots
 

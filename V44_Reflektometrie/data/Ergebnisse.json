@@ -1,0 +1,14 @@
+{
+    "Detektorscan": {
+        "Ausgleichsrechnung": {
+            "a": "( 1.892+/-0.038)e+05",
+            "b": "( 4.0+/-1.2)e+04",
+            "sigma": " 0.04671+/-0.00083",
+            "mu": " 0.04603+/-0.00068"
+        },
+        "I_max_gemessen": " 1.6435e+06",
+        "I_max_gauss": " 1.6561e+06",
+        "Halbwertsbreite": " 1.1197e-01",
+        "Halbwertsbreite_gauss": " 1.1000e-01"
+    }
+}
