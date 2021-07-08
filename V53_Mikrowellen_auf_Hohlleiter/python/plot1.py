@@ -119,10 +119,10 @@ F0 = 9028
 F2 = 9053
 
 A = (F2 * 10**3 - F1* 10**3)/(V2 - V1)
-print("A:", A) #Hz/V
+#print("A:", A) #Hz/V
 
 B = (F2 - F1) * 10**3
-print("B:", B) #Hz
+#print("B:", B) #Hz
 
 #A: 2000.0
 #B: 48000
@@ -138,7 +138,7 @@ fr = c * np.sqrt((1/(lambda_h))**2 + (1/(2 * a))**2)
 def f(x,a,b,c):
     return a*x**2 + b*x +c
 
-d,D = np.genfromtxt('data/dämpfung.csv',delimiter=',',skip_header=2,unpack=True)
+d,D = np.genfromtxt('data/daempfung.csv',delimiter=',',skip_header=2,unpack=True)
 d_t = [0, 1.0, 1.4, 1.75, 2.0, 2.3]
 D_neu = D + 12.1
 
@@ -183,7 +183,7 @@ plt.clf()
 d1 = 63.5 * 10**-3
 d2 = 61.8 * 10**-3
 diff = d1 - d2
-lambda_h2 = 2 * (90.7 - 67.0) * 10**-3
+lambda_h2 = 2 * (90.8 - 67.0) * 10**-3
 #print("Lambda:", lambda_h2)
 
 S1 = np.sqrt(  1 + 1/( (np.sin(np.pi * diff/lambda_h2)  )**2   )          )
@@ -197,5 +197,5 @@ S2 = lambda_h2/(np.pi * diff)
 #S_näh: 8.875228591242163
 
 S3 = 10 ** (23/20)
-print("S_3", S3)
+#print("S_3", S3)
 #S_3 14.12537544622754
