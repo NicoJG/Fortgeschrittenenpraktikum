@@ -111,6 +111,10 @@ Damit erhalten wir eine Frequenz $f$
 \subsection{Die Dämpfungskurve}
 \label{ssec:a3}
 
+Die zur Aufstellung der Dämpfungskurve benötigten Daten sind in \autoref{tab:dämpfung} dargestellt. 
+Der Hersteller des Dämpfungsglied gibt zudem einen Zusammenhang zwischen der Tiefe der Mikrometerschraube und der Dämpfung an.
+Dieser Zusammenhang ist ebenfalls in \autoref{tab:dämpfung} aufgezeigt.
+
 \begin{table}
     \centering
     \caption{Messwerte und Werte des Herstellers für die Dämpfungskurve}
@@ -129,12 +133,84 @@ Damit erhalten wir eine Frequenz $f$
     \end{tabular}
 \end{table}
 
+Nun werden diese Werte nun in einem Plot dargestellt.
+Durch die Theoriekurve wurde eine Curve-Fit Parabel der Form \autoref{eq:mode_fit} gelegt.
+Die entstandenen Parameter sind 
+\begin{align*}
+    a =& \SI{1.749+-0.134}{\per\decibel} \\
+    b =& (0.403 \pm 0.316) \\
+    c =& \SI{-0.031+-0.173}{\decibel} \, .
+\end{align*}
+Es fällt auf, dass die Messwerte nicht mit der Theoriekurve übereinstimmen.
+Zwischen den Mess- und  Theoriewerten liegt eine Differenz von etwa $\SI{12.1}{\decibel}$.
+Zur Vollständigkeit sind die an die Theoriekurve angepassten Messwerte ebenfalls in \autoref{fig:daempf_plot} dargestellt.
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_dämpfung.pdf}
     \caption{Plot der Dämpfungskurve mit gemessenen und korrigierten Werten}
-    \label{fig:dämpf_plot}
+    \label{fig:daempf_plot}
 \end{figure}
 
-\subsection{Berechnung des Stehwellenverhältnisses über drei Methoden}
-\label{ssec:a5}
+\subsection{Berechnung des Stehwellenverhältnisses}
+\label{ssec:a4}
+
+Für die Berechnung des Stehwellenverhältnisses werden drei verschiedene Methoden verwendet.
+Diese sind nachfolgend aufgeführt.
+
+\subsubsection{Direkte Bestimmung}
+\label{sssec:a5}
+
+In \autoref{tab:swr} sind die direkt bestimmtem Werte des SWR-Meters notiert, sowie die Einstellung des Gleitschraubentransformators.
+
+\begin{table}
+    \centering
+    \caption{Messwerte des SWR in Abhängigkeit der Tiefe des Gleitschraubentransformators}
+    \label{tab:swr}
+    \begin{tabular}{S[table-format=1.0] S[table-format=1.2]}
+        \toprule
+        \tableSI{d}{\milli\meter} & \text{SWR} \\
+        \midrule
+        3 & 1.15 \\
+        5 & 1.65 \\
+        7 & 3.45 \\
+        9 & 10.00 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{$\SI{3}{dB}$-Methode}
+\label{sssec:a6}
+
+Die gemesseenen Werte der $\SI{3}{dB}$-Methode sind in \autoref{eq:3db} aufgelistet.
+Dabei sind $m_1$ und $m_2$ jeweils die gemessenen Abstände der Maxima.
+Aus diesen kann über die bekannte Relation \autoref{eq:welle} die Hohlleiterwellenlänge $\lambda _\text{g}$ erneut bestimmt werden.
+
+\begin{align}
+    d_1 =& \SI{63.5}{\milli\meter} \\
+    d_2 =& \SI{61.8}{\milli\meter} \\
+    m_1 =& \SI{67.0}{\milli\meter} \\
+    m_2 =& \SI{90.8}{\milli\meter} \\
+    \lambda _\text{g} =& \SI{47.6}{\milli\meter} \, .
+    \label{eq:3db}
+\end{align}
+
+Nun kann das Stehwellenverhältnis $S_2$ über GLEICHUNG IN THEORIE bestimmt werden.
+Es ergibt sich
+\begin{equation*}
+    S_2 = 8.987 \, .
+\end{equation*}
+
+\subsubsection{Abschwächer-Methode}
+\label{sssec:a7}
+
+Für die Abschwächer-Methode werden am Dämpfungsglied zwei verschiedene Einstellungen $A_1$ und $A_2$ benötigt.
+Beide Einstellungen sind in \autoref{eq:absch} notiert. 
+Das entsprechende Stehwellenverhältnis $S_3$ ergibt sich dann über GLEICHUNG AUS THEORIE.
+
+\begin{align}
+    A_1 =& \SI{20.0}{\decibel} \\
+    A_2 =& \SI{43.0}{\decibel} \\
+    S_3 =& 47.6 \, .
+    \label{eq:absch}
+\end{align}
