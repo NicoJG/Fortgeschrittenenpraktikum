@@ -79,7 +79,16 @@ plt.clf()
 print('Plot: Z-Scan...')
 z, intensity = np.genfromtxt('data/ZScan1.UXD', unpack=True)
 
+# Strahlbreite Ablesen
+i_d = [28,-12]
+
+if not 'Z-Scan' in Ergebnisse:
+    Ergebnisse['Z-Scan'] = dict()
+Ergebnisse['Z-Scan']['d'] = np.abs(z[i_d[0]]-z[i_d[1]])
+
 # Z Scan Plotten
+plt.axvline(z[i_d[0]],color='blue',linestyle='dashed',label='Strahlgrenzen')
+plt.axvline(z[i_d[1]],color='blue',linestyle='dashed')
 plt.plot(z, intensity, 'ro', label='Messdaten')
 plt.xlabel(r'$z \:/\: \si{\milli\meter}$')
 plt.ylabel(r'$I \:/\: ???$')
@@ -96,7 +105,18 @@ plt.clf()
 print('Plot: Rocking-Scan...')
 angle, intensity = np.genfromtxt('data/RockingScan1.UXD', unpack=True)
 
+# Geometriewinkel ablesen
+i_g = [7,-6]
+
+if not 'Rockingscan' in Ergebnisse:
+    Ergebnisse['Rockingscan'] = dict()
+Ergebnisse['Rockingscan']['alpha_g_l'] = angle[i_g[0]]
+Ergebnisse['Rockingscan']['alpha_g_r'] = angle[i_g[1]]
+Ergebnisse['Rockingscan']['alpha_g'] = np.mean(np.abs(angle[i_g]))
+
 # Rocking Scan Plotten
+plt.axvline(angle[i_g[0]],color='blue',linestyle='dashed',label='Geometriewinkel')
+plt.axvline(angle[i_g[1]],color='blue',linestyle='dashed')
 plt.plot(angle, intensity, 'ro', label='Messdaten')
 plt.xlabel(r'$\alpha \:/\: \si{\degree}$')
 plt.ylabel(r'$I \:/\: ???$')

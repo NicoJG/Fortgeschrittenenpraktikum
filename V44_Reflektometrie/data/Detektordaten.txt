@@ -1,0 +1,2 @@
+Probengröße Durchmesser D: 2.2 cm
+Strahlbreite d: 0.2 mm

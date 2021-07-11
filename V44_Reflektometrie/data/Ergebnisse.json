@@ -10,5 +10,13 @@
         "I_max_gauss": " 1.6561e+06",
         "Halbwertsbreite": " 1.1197e-01",
         "Halbwertsbreite_gauss": " 1.1000e-01"
+    },
+    "Rockingscan": {
+        "alpha_g_l": -0.65,
+        "alpha_g_r": 0.75,
+        "alpha_g": 0.7
+    },
+    "Z-Scan": {
+        "d": 0.22000000000000003
     }
 }
