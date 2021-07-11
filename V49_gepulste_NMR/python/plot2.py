@@ -13,6 +13,7 @@ os.environ['TEXINPUTS'] =  str(project_path.parent/'default'/'python')+':'
 import numpy as np
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
+from uncertainties import ufloat
 
 t,A1,A2 = np.genfromtxt('data/G_Messung.csv',delimiter=',',skip_header=2,unpack=True)
 
@@ -72,18 +73,21 @@ plt.clf()
 tau, A3 = np.genfromtxt('data/Diffusion.csv',delimiter=',',skip_header=2,unpack=True)
 
 tau = tau * 10**-3
-A3 = A3 * 10**-3
+A3 = - A3 * 10**-3
+
+print("Tau:", tau)
+print("A:", A3)
 
 # Ausgleichskurven Funktion (hier Ausgleichsgerade)
 def f(tau,a,b,c):
-    return (a * np.exp(-2*tau/1.696 ) * np.exp((- (tau)**3 )/ b) + c )
+    return (a * np.exp(-2*tau/1.696 ) * np.exp((- (tau)**3 )* 2 * b) + c )
 
 # a = M0
 # b = TD
 # c = M1
 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(f,tau,A3,p0=(1,0.0001,1)) 
+params,pcov = curve_fit(f,tau,A3) #,p0=(1,10,1)
 
 # Parameter
 a = params[0]
@@ -119,6 +123,15 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_Diff3.pdf')
 #plt.show()
 
-#M0 = 58.52555606067647+-4.555093339838067
-#TD = 0.00864119572833222+-0.021287363559897667
-#M1 = -57.186032008791265+-4.5383188252000615
+#M0 = -58.52567329617614+-4.555084862568209
+#b = 57.85829308162898+-142.51600842858738
+#M1 = 57.18614894336319+-4.538310037873075
+
+G = 2 * np.pi * 13300 / (268 * 10**6 * 4.4 * 10**-3)
+
+print("G:", G)
+
+TD = ufloat(57.86,142.52)
+
+D = (3 * TD)/((268 * 10**6)**2 * G**2 )
+print("D:", D)
