@@ -1,3 +1,216 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Berechnung der Bandbreite}
+\label{ssec:a1}
+
+Zunächst werden die Messwerte für die verschiedenen Moden in \autoref{tab:moden} notiert.
+\begin{table}
+    \centering
+    \caption{Messwerte der drei verschiedenen Moden}
+    \label{tab:moden}
+    \begin{tabular}{c S[table-format=3.0] S[table-format=3.0] S[table-format=3.0] S[table-format=1.1] S[table-format=4.0]}
+        \toprule
+        Modenzahl & \tableSI{V_0}{\volt} & \tableSI{V_1}{\volt} & \tableSI{V_2}{\volt} & \tableSI{A_0}{\volt} & \tableSI{f_0}{\mega\hertz} \\
+        \midrule
+        1. Mode & 85 & 70 & 92 & 0.8 & 9036\\
+        2. Mode & 140 & 122 & 150 & 1.0 & 9030\\
+        3. Mode & 220 & 208 & 230 & 0.9 & 9027\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Anschließend wird zur besseren Übersicht ein Plot mit diesen Werten erstellt.
+Dabei wird für jede der drei Moden ein Curve-Fit mit der Funktion 
+\begin{equation}
+    A = a \, U^2 + b \, U + c
+    \label{eq:mode_fit}
+\end{equation}
+durchgeführt.
+Dementsprechend erhalten wir neun verschiedene Parameter.
+Diese werden in \autoref{tab:mode_param} präsentiert.
+\begin{table}
+    \centering
+    \caption{Parameter der drei Ausgleichsparabeln}
+    \label{tab:mode_param}
+    \begin{tabular}{c S[table-format=-1.3] S[table-format=1.3] S[table-format=-3.3]}
+        \toprule
+        Modenzahl & \tableSI{a}{\per\volt} & b & \tableSI{c}{\volt} \\
+        \midrule
+        1. Mode & -0.008 & 1.234 & -49.067 \\
+        2. Mode & -0.006 & 1.511 & -101.667 \\
+        3. Mode & -0.008 & 3.285 & -358.800 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Der dazugehörige Plot ist in \autoref{fig:mode_plot} dargestellt. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_moden.pdf}
+    \caption{Plot der aufgenommenen Moden}
+    \label{fig:mode_plot}
+\end{figure}
+
+Danach findet die eigentliche Bestimmung der Bandbreite und der Abstimm-Empfindlichkeit statt.
+Dafür wurden ebenfalls Messwerte aufgenommen, die in \autoref{tab:band} einsehbar sind.
+Dabei ist a) die Messung bei maximaler Amplitude.
+b) und c) sind jeweils die Spannungen und Frequenzen bei halber Amplitude, rechts bzw. links davon.
+
+\begin{table}
+    \centering
+    \caption{Messwerte einer Mode für die Bestimmung der Bandbreite}
+    \label{tab:band}
+    \begin{tabular}{c S[table-format=3.0] S[table-format=4.0]}
+        \toprule
+         & \tableSI{V}{\volt} & \tableSI{f}{\mega\hertz} \\
+        \midrule
+        a) & 220 & 9028 \\
+        b) & 211 & 9005 \\
+        c) & 235 & 9053 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Über die Differenz von $f_c$ und $f_b$ kann nun die elektronische Bandbreite $F$ als 
+\begin{equation}
+    F = \SI{48}{\mega\hertz}
+    \label{eq:bandbreite}
+\end{equation}
+berechnet werden.
+Über die Bandbreite kann ein weiterer Wert bestimmt werden, die Abstimm-Empfindlichkeit
+\begin{equation}
+    \frac{F}{A_c - A_b} = \SI{2000}{\hertz\per\volt}
+    \label{eq:abstimm}
+\end{equation}
+
+\subsection{Frequenzmessung}
+\label{ssec:a2}
+
+Die zur Frequenzbestimmung benötigten Werte sind in \autoref{eq:freq} notiert.
+Hierbei sind $m_1$ und $m_2$ die auf dem Messgerät abgelesenen Abstände.
+$f$ ist die eingestellte Frequenz, die es gleich zu bestätigen gilt.
+\begin{align}
+    f =& \SI{9027}{\mega\hertz} \\
+    m_1 =& \SI{53.2}{\milli\meter} \\
+    m_2 =& \SI{78.4}{\milli\meter} \\
+    a =& \SI{22.8}{\milli\meter}
+    \label{eq:freq}
+\end{align}
+$a$ ist die vorgegebene Innenabmessung des Hohlleiters.
+Mit diesen Werten kann nun über FORMEL FÜR F die Frequenz berechnet werden, wobei 
+\begin{equation}
+    \lambda _\text{g} = 2 \cdot (m_2 - m_1)= \SI{50.4}{\milli\meter}
+    \label{eq:welle}
+\end{equation}
+die Wellenlänge im Hohlleiter ist.
+Damit erhalten wir eine Frequenz $f$
+\begin{equation}
+    f = \SI{8872}{\hertz} \, .
+    \label{eq:frequenz}
+\end{equation}
+
+\subsection{Die Dämpfungskurve}
+\label{ssec:a3}
+
+Die zur Aufstellung der Dämpfungskurve benötigten Daten sind in \autoref{tab:dämpfung} dargestellt. 
+Der Hersteller des Dämpfungsglied gibt zudem einen Zusammenhang zwischen der Tiefe der Mikrometerschraube und der Dämpfung an.
+Dieser Zusammenhang ist ebenfalls in \autoref{tab:dämpfung} aufgezeigt.
+
+\begin{table}
+    \centering
+    \caption{Messwerte und Werte des Herstellers für die Dämpfungskurve}
+    \label{tab:dämpfung}
+    \begin{tabular}{S[table-format=1.0] S[table-format=1.2] S[table-format=1.2]}
+        \toprule
+        \tableSI{\text{SWR-Ausschlag}}{\decibel} & \tableSI{d}{\milli\meter} & \tableSI{d_\text{theorie}}{\milli\meter} \\
+        \midrule
+        0 & 2.50 & 0.00\\
+        2 & 2.67 & 1.00\\
+        4 & 2.92 & 1.40\\
+        6 & 3.09 & 1.75\\
+        8 & 3.20 & 2.00\\
+        10 & 3.41 & 2.30\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Nun werden diese Werte nun in einem Plot dargestellt.
+Durch die Theoriekurve wurde eine Curve-Fit Parabel der Form \autoref{eq:mode_fit} gelegt.
+Die entstandenen Parameter sind 
+\begin{align*}
+    a =& \SI{1.749+-0.134}{\per\decibel} \\
+    b =& (0.403 \pm 0.316) \\
+    c =& \SI{-0.031+-0.173}{\decibel} \, .
+\end{align*}
+Es fällt auf, dass die Messwerte nicht mit der Theoriekurve übereinstimmen.
+Zwischen den Mess- und  Theoriewerten liegt eine Differenz von etwa $\SI{12.1}{\decibel}$.
+Zur Vollständigkeit sind die an die Theoriekurve angepassten Messwerte ebenfalls in \autoref{fig:daempf_plot} dargestellt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_dämpfung.pdf}
+    \caption{Plot der Dämpfungskurve mit gemessenen und korrigierten Werten}
+    \label{fig:daempf_plot}
+\end{figure}
+
+\subsection{Berechnung des Stehwellenverhältnisses}
+\label{ssec:a4}
+
+Für die Berechnung des Stehwellenverhältnisses werden drei verschiedene Methoden verwendet.
+Diese sind nachfolgend aufgeführt.
+
+\subsubsection{Direkte Bestimmung}
+\label{sssec:a5}
+
+In \autoref{tab:swr} sind die direkt bestimmtem Werte des SWR-Meters notiert, sowie die Einstellung des Gleitschraubentransformators.
+
+\begin{table}
+    \centering
+    \caption{Messwerte des SWR in Abhängigkeit der Tiefe des Gleitschraubentransformators}
+    \label{tab:swr}
+    \begin{tabular}{S[table-format=1.0] S[table-format=1.2]}
+        \toprule
+        \tableSI{d}{\milli\meter} & \text{SWR} \\
+        \midrule
+        3 & 1.15 \\
+        5 & 1.65 \\
+        7 & 3.45 \\
+        9 & 10.00 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{$\SI{3}{dB}$-Methode}
+\label{sssec:a6}
+
+Die gemesseenen Werte der $\SI{3}{dB}$-Methode sind in \autoref{eq:3db} aufgelistet.
+Dabei sind $m_1$ und $m_2$ jeweils die gemessenen Abstände der Maxima.
+Aus diesen kann über die bekannte Relation \autoref{eq:welle} die Hohlleiterwellenlänge $\lambda _\text{g}$ erneut bestimmt werden.
+
+\begin{align}
+    d_1 =& \SI{63.5}{\milli\meter} \\
+    d_2 =& \SI{61.8}{\milli\meter} \\
+    m_1 =& \SI{67.0}{\milli\meter} \\
+    m_2 =& \SI{90.8}{\milli\meter} \\
+    \lambda _\text{g} =& \SI{47.6}{\milli\meter} \, .
+    \label{eq:3db}
+\end{align}
+
+Nun kann das Stehwellenverhältnis $S_2$ über GLEICHUNG IN THEORIE bestimmt werden.
+Es ergibt sich
+\begin{equation*}
+    S_2 = 8.987 \, .
+\end{equation*}
+
+\subsubsection{Abschwächer-Methode}
+\label{sssec:a7}
+
+Für die Abschwächer-Methode werden am Dämpfungsglied zwei verschiedene Einstellungen $A_1$ und $A_2$ benötigt.
+Beide Einstellungen sind in \autoref{eq:absch} notiert. 
+Das entsprechende Stehwellenverhältnis $S_3$ ergibt sich dann über GLEICHUNG AUS THEORIE.
+
+\begin{align}
+    A_1 =& \SI{20.0}{\decibel} \\
+    A_2 =& \SI{43.0}{\decibel} \\
+    S_3 =& 47.6 \, .
+    \label{eq:absch}
+\end{align}
