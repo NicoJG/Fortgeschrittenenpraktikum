@@ -41,7 +41,7 @@ if not 'Detektorscan' in Ergebnisse:
     Ergebnisse['Detektorscan'] = dict()
 if not 'Ausgleichsrechnung' in Ergebnisse['Detektorscan']:
     Ergebnisse['Detektorscan']['Ausgleichsrechnung'] = dict()
-for i,name in enumerate(['a','b','sigma','mu']):
+for i,name in enumerate(['a','b','sigma[degree]','mu[degree]']):
     Ergebnisse['Detektorscan']['Ausgleichsrechnung'][name] = f'{ufloat(params[i],np.absolute(pcov[i][i])**0.5) : .2u}'
 
 angle_linspace = np.linspace(np.min(angle),np.max(angle), 1000)
@@ -57,9 +57,9 @@ Ergebnisse['Detektorscan']['I_max_gauss'] = f'{I_max : .4e}'
 left_FWHM = root(lambda x: gauss(x,*params)-(I_max/2), x0=-0.01).x[0]
 right_FWHM = root(lambda x: gauss(x,*params)-(I_max/2), x0=0.1).x[0]
 FWHM = np.absolute(right_FWHM - left_FWHM)
-Ergebnisse['Detektorscan']['Halbwertsbreite'] = f'{FWHM : .4e}'
+Ergebnisse['Detektorscan']['Halbwertsbreite[degree]'] = f'{FWHM : .4e}'
 # Wikipedia: Die Halbwertsbreite einer Normalverteilung ist das ungefähr 2,4-Fache (genau 2*sqrt(2*ln(2))) der Standardabweichung.
-Ergebnisse['Detektorscan']['Halbwertsbreite_gauss'] = f'{params[2]*(2*np.sqrt(2*np.log(2))) : .4e}'
+Ergebnisse['Detektorscan']['Halbwertsbreite_gauss[degree]'] = f'{params[2]*(2*np.sqrt(2*np.log(2))) : .4e}'
 
 # Detektor Scan Plotten
 plt.plot(angle_linspace, intensity_gauss, 'k-', label='Ausgleichskurve')
@@ -67,7 +67,7 @@ plt.plot([left_FWHM, right_FWHM], [I_max/2, I_max/2], 'b--', label='Halbwertsbre
 plt.plot(angle, intensity, 'ro', label='Messdaten')
 plt.xlabel(r'$\alpha \:/\: \si{\degree}$')
 plt.ticklabel_format(axis='y',style='sci',scilimits=(0,0))
-plt.ylabel(r'$I \:/\: ???$')
+plt.ylabel(r'$I \:/\: Hits in \SI{1}{\second}$')
 plt.legend()
 plt.tight_layout(pad=0.15, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_detektorscan.pdf')
@@ -81,17 +81,18 @@ z, intensity = np.genfromtxt('data/ZScan1.UXD', unpack=True)
 
 # Strahlbreite Ablesen
 i_d = [28,-12]
+d0 = np.abs(z[i_d[0]]-z[i_d[1]]) # mm
 
 if not 'Z-Scan' in Ergebnisse:
     Ergebnisse['Z-Scan'] = dict()
-Ergebnisse['Z-Scan']['d'] = np.abs(z[i_d[0]]-z[i_d[1]])
+Ergebnisse['Z-Scan']['d_0[mm]'] = d0
 
 # Z Scan Plotten
 plt.axvline(z[i_d[0]],color='blue',linestyle='dashed',label='Strahlgrenzen')
 plt.axvline(z[i_d[1]],color='blue',linestyle='dashed')
 plt.plot(z, intensity, 'ro', label='Messdaten')
 plt.xlabel(r'$z \:/\: \si{\milli\meter}$')
-plt.ylabel(r'$I \:/\: ???$')
+plt.ylabel(r'$I \:/\: Hits in \SI{1}{\second}$')
 plt.ticklabel_format(axis='y',style='sci',scilimits=(0,0))
 plt.legend()
 plt.tight_layout(pad=0.15, h_pad=1.08, w_pad=1.08)
@@ -107,19 +108,27 @@ angle, intensity = np.genfromtxt('data/RockingScan1.UXD', unpack=True)
 
 # Geometriewinkel ablesen
 i_g = [7,-6]
+a_g = np.mean(np.abs(angle[i_g]))
+
+D = 20 #mm
+
+# Geometriewinkel brechnen aus Strahlbreite und Probenlänge
+a_g_berechnet = np.rad2deg(np.arcsin(d0/D))
 
 if not 'Rockingscan' in Ergebnisse:
     Ergebnisse['Rockingscan'] = dict()
-Ergebnisse['Rockingscan']['alpha_g_l'] = angle[i_g[0]]
-Ergebnisse['Rockingscan']['alpha_g_r'] = angle[i_g[1]]
-Ergebnisse['Rockingscan']['alpha_g'] = np.mean(np.abs(angle[i_g]))
+Ergebnisse['Rockingscan']['alpha_g_l[degree]'] = angle[i_g[0]]
+Ergebnisse['Rockingscan']['alpha_g_r[degree]'] = angle[i_g[1]]
+Ergebnisse['Rockingscan']['alpha_g[degree]'] = a_g
+Ergebnisse['Rockingscan']['alpha_g_berechnet[degree]'] = a_g_berechnet
+
 
 # Rocking Scan Plotten
 plt.axvline(angle[i_g[0]],color='blue',linestyle='dashed',label='Geometriewinkel')
 plt.axvline(angle[i_g[1]],color='blue',linestyle='dashed')
 plt.plot(angle, intensity, 'ro', label='Messdaten')
 plt.xlabel(r'$\alpha \:/\: \si{\degree}$')
-plt.ylabel(r'$I \:/\: ???$')
+plt.ylabel(r'$I \:/\:$ Hits in $\SI{1}{\second}$')
 plt.ticklabel_format(axis='y',style='sci',scilimits=(0,0))
 plt.legend()
 plt.tight_layout(pad=0.15, h_pad=1.08, w_pad=1.08)
