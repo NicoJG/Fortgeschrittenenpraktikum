@@ -1,3 +1,175 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Justierung des Detektors}
+\label{ssec:Justierung}
+
+Zunächst werden sowohl der Detektor als auch die Probe im Detektor durch verschiedene Scans justiert.
+Hieraus ergeben sich Konstanten die zur Auswertung der eigentlichen Röntgenreflektometrie benötigt werden.
+
+\subsubsection{Detektorscan}
+\label{sssec:Detektorscan}
+
+Wie in der Durchführung beschrieben, wird zuerst ein \enquote{Detektorscan} durchgeführt, also ein winkelabhängiger Scan ohne die Probe.
+Das Ergebnis dieses Scans ist in \autoref{fig:plot_detektorscan} zu sehen. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_detektorscan.pdf}
+    \caption{Detektorscan mit entsprechender Gaußfunktion als Ausgleichskurve}
+    \label{fig:plot_detektorscan}
+\end{figure}
+
+Außerdem wird eine Gaußfunktion der Form
+\begin{equation}
+    I(\alpha) = \frac{a}{\sqrt{2 \cdot \pi \cdot \sigma^2}} \cdot \exp\left(-\frac{(x - \mu)^2}{2 \cdot \sigma^2}\right) + b
+\end{equation}
+mithilfe der Funktion \textit{curve\_fit} aus der Python Bibliothek SciPy an die Messdaten angepasst.
+Damit ergeben sich die Parameter 
+\begin{align*}
+    a &= \num{1.892+-0.038e+05} \\
+    b &= \num{4.0+-1.2e+04} \\
+    \sigma &= \SI{0.04671+-0.00083}{\degree} \\
+    \mu &= \SI{0.04603+-0.00068}{\degree} \, .
+\end{align*}
+
+Es wird sowohl die Halbwertsbreite $FWHM$ als auch die maximale Intensität $I_\text{max}$ dieser Gaußfunktion abgelesen.
+So ergeben sich
+\begin{align*}
+    FWHM &= \SI{0.112}{\degree} \\
+    I_\text{max} &= \num{1.656e+06} \, .
+\end{align*}
+
+\subsubsection{Z-Scan}
+\label{sssec:Z-Scan}
+
+Aus dem ersten durchgeführten \enquote{Z-Scan}, der in \autoref{fig:plot_zscan} zu sehen ist,
+wird die Strahlbreite $d_0$ bestimmt, als der Abstand von maximaler zu minimaler Intensität.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_zscan.pdf}
+    \caption{Erster durchgeführter Z-Scan mit eingezeichneter Strahlbreite}
+    \label{fig:plot_zscan}
+\end{figure}
+
+Hier ergibt sich eine Strahlbreite von
+\begin{equation*}
+    d_0 = \SI{0.22}{\milli\meter} \, .
+\end{equation*}
+
+\subsubsection{Rockingscan}
+\label{sssec:Rockingscan}
+
+Aus dem ersten durchgeführten \enquote{Rockingscan}, der in \autoref{fig:plot_rockingscan} zu sehen ist,
+wird der Geometriewinkel $\alpha_\text{g}$ bestimmt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_rockingscan.pdf}
+    \caption{Erster durchgeführter Rockingscan mit eingezeichneten Geometriewinkeln}
+    \label{fig:plot_rockingscan}
+\end{figure}
+
+Es können zwei Geometriewinkel abgelesen werden und diese werden zu einem Wert gemittelt.
+So ergeben sich
+\begin{align*}
+    \alpha_\text{g,links} &= \SI{0.65}{\degree} \\
+    \alpha_\text{g,rechts} &= \SI{0.75}{\degree} \\
+    \overline{\alpha_\text{g}} &= \SI{0.70}{\degree} \, .
+\end{align*}
+
+Außerdem kann aus der Strahlbreite $d_0 = \SI{0.22}{\milli\meter}$ und der Probenlänge $D = \SI{20}{\milli\meter}$
+der Geometriewinkel über \autoref{eq:a_g} zu
+\begin{equation*}
+    \alpha_\text{g,Theorie} = \SI{0.63}{\degree}
+\end{equation*}
+berechnet werden. 
+
+% IN DISKUSSION VERGLEICHEN!
+
+\subsection{Messung des Reflektivitätsscans und Bestimmung des Dispersionsprofils}
+\label{ssec:Messung}
+
+Anhand des aufgenommenen Reflektivitätsscans wird nun das Dispersionsprofil der untersuchten Probe bestimmt.
+Die Messdaten und die Ergebnisse der hier durchgeführten Berechnungen sind in \autoref{fig:plot_messung} zu sehen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_messung.pdf}
+    \caption{Messdaten des Reflektivitätsscans und Ergebnisse der Bestimmung des Dispersionsprofils. 
+    Die Messdaten sind durch 10 geteilt, damit nicht so viele Linien übereinander liegen.} 
+    \label{fig:plot_messung}
+\end{figure}
+
+Die Auswertung des Reflektivitätsscans wird auf einen Bereich von $\alpha_\text{i} \in [\SI{0.01}{\degree}, \SI{1.6}{\degree}]$ beschränkt,
+da die Werte außerhalb dieses Bereichs unbrauchbar für die Auswertung sind.
+
+Anstatt der gemessenen Intensität $I$ (Hits pro 5 Sekunden) wird mit der Reflektivität $R$ gerechnet.
+\begin{equation}
+    R = \frac{I}{5 \cdot I_\text{max}}
+\end{equation}
+ist also die Intensität normiert auf das fünffache der maximalen Intensität des Detektorscans während der Justierung.
+
+Um Rückstreueffekte zu eliminieren wird der diffuse Scan vom Reflektivitätsscan abgezogen. 
+Hierbei ist anzumerken, dass der von uns gemessenene diffuse Scan sehr niedrige Intensitäten hatte, 
+somit ist in \autoref{fig:plot_messung} kaum ein Unterschied in den korrigierten Reflektivitäten zu sehen.
+
+Mithilfe des während der Justierung bestimmten Geometriewinkels $\alpha_\text{g}$, der Strahlbreite $d_0$ sowie der Probenlänge $D$
+wird nun nach \autoref{eq:geo} der Geometriefaktor für jeden Winkel $\alpha_\text{i}$ bestimmt.
+Die Reflektivität wird mit diesen Geometriefaktoren korrigiert.
+
+Zum Vergleich mit der Theorie wird außerdem in \autoref{fig:plot_messung} die Fresnelreflektivität einer ideal glatten Siliziumoberfläche gezeichnet.
+Diese wird über \autoref{eq:reflek} und dem Literaturwert $\alpha_\text{c,Si} = \SI{0.223}{\degree}$ berechnet.\cite{V44old}
+
+Um aus dem korrigierten Reflektivitätsscan die Schichtdicke der Polystyrolschicht der Probe zu bestimmen,
+werden die Abstände $\Delta\alpha_\text{i}$ der Minima der Kiessig-Oszillation gemessen.
+Dies wird mithilfe der Funktion \textit{find\_peaks} aus der Python Bibliothek SciPy getan
+und die Minima werden auch in \autoref{fig:plot_messung} eingezeichnet. 
+Anschließend wird der Mittelwert dieser Abstände zu
+\begin{equation*}
+    \overline{\Delta\alpha_\text{i}} = \SI{8.73+-0.31e-4}{\,\degree}
+\end{equation*}
+berechnet.
+Über \autoref{eq:schicht} wird die Schichtdicke zu 
+\begin{equation*}
+    d_\text{PS} = \SI{8.82+-0.31e-08}{\meter}
+\end{equation*}
+berechnet.
+
+Eine andere Möglichkeit die Schichtidicke der Polystyrolschicht zu ermitteln ist der Parratt-Algorithmus.
+Hiermit lässt sich das Dispersionsprofil der Probe bestimmen.
+Dieser wird genutzt indem über \autoref{eq:parratt},\ref{eq:k} und \ref{eq:r_modifiziert} für jeden Einfallswinkel $\alpha_\text{i}$ die Refletivität berechnet wird.
+Wobei hier zwei Schichten betrachtet werden, Polystyrol (PS) als Schicht 2 und Silizium (Si) als Substrat bzw. Schicht 3.
+Diese berechnete Reflektivität wird in einem Plot mit der korrigierten gemessenen Reflektivität verglichen.
+Die Parameter $\delta_2,\delta_3,\sigma_1,\sigma_2$ und $z_2$ werden manuell so angepasst,
+dass die berechnete Reflektivität möglichst gut mit der gemessenen Reflektivität übereinstimmt.
+
+Als bereits bekannte Parameter werden 
+\begin{align*}
+    \delta_\text{1,Luft} &= 0 \\
+    z_1 &= 0 \\
+    \lambda &= \SI{1.54e-10}{\meter}
+\end{align*}
+angenommen. 
+Die in \autoref{fig:plot_messung} gezeigte Theoriekurve ensteht mit den Parametern
+\begin{align*}
+    \delta_\text{2,PS} &= \num{0.5e-6} \\
+    \delta_\text{3,Si} &= \num{6.75e-6} \\
+    \sigma_1 &= \SI{8.0e-10}{\meter} \\
+    \sigma_2 &= \SI{6.3e-10}{\meter} \\
+    z_2 &= \SI{8.55e-8}{\meter} \, .
+\end{align*}
+Allerdings muss angemerkt werden, dass $\sigma_1$ nur wenig Einfluss auf die Gestalt der berechneten Reflektivitätskurve hat.
+Außerdem sind diese Parameter aus subjektiver Wahrnehmung entstanden.
+
+Mithilfe den zuvor bestimmten Dispersionen $\delta_\text{PS}$ und $\delta_\text{Si}$ 
+lassen sich nun die Kritischen Winkel $\alpha_\text{c}$ über \autoref{eq:a_c} zu
+\begin{align*}
+    \alpha_\text{c,PS} &= \SI{0.057}{\degree} \\
+    \alpha_\text{c,Si} &= \SI{0.211}{\degree}
+\end{align*}
+bestimmen. 
+Auch diese Winkel sind in \autoref{fig:plot_messung} eingezeichnet.
+
+

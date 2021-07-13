@@ -42,7 +42,7 @@ if (a_refl!=a_diff).any():
 a = a_refl
     
 # Anfang und Ende abschneiden
-a_min = 0.1
+a_min = 0.01 
 a_max = 1.6
 mask = (a >= a_min) & (a <= a_max)
 a = a[mask]
@@ -80,7 +80,6 @@ R_G = R * G
 # Ideale Fresnelreflektivität
 a_c_Si = 0.223
 R_ideal = (a_c_Si / (2 * a))**4
-R_ideal[a <= 0.21] = np.nan
 
 ## Peaks finden
 # Curve Fit für find_peaks
@@ -153,14 +152,16 @@ params = [delta2,delta3,sigma1,sigma2,z2]
 
 R_parr = parrat_rau(a, *params)
 
-R_parr[a <= 0.21] = np.nan
 
 # Kritischer Winkel
-a_c2 = np.sqrt(2*delta2)
-a_c3 = np.sqrt(2*delta3)
+a_c2 = np.rad2deg(np.sqrt(2*delta2))
+a_c3 = np.rad2deg(np.sqrt(2*delta3))
 
-Ergebnisse['Messung']['a_c2[degree]'] = np.rad2deg(a_c2)
-Ergebnisse['Messung']['a_c3[degree]'] = np.rad2deg(a_c3)
+Ergebnisse['Messung']['a_c2[degree]'] = a_c2
+Ergebnisse['Messung']['a_c3[degree]'] = a_c3
+
+R_ideal[a <= a_c3] = np.nan
+R_parr[a <= a_c3] = np.nan
 
 ############
 ## Plotten
@@ -169,6 +170,8 @@ Ergebnisse['Messung']['a_c3[degree]'] = np.rad2deg(a_c3)
 print('Plot: Mess-Scan...')
 mpl.rcParams['lines.linewidth'] = 0.9
 mpl.rcParams['axes.grid.which'] = 'major'
+plt.axvline(a_c2, linewidth=0.6, linestyle='dashed', color='blue', label=r'$\alpha_\text{c,PS},\alpha_\text{c,Si}$')
+plt.axvline(a_c3, linewidth=0.6, linestyle='dashed', color='blue')
 plt.plot(a, R_refl/10, '-', label='Reflektivitätsscan / 10')
 plt.plot(a, R_diff/10, '-', label='Diffuser Scan / 10')
 plt.plot(a, R/10, '-', label='Reflektivitätsscan - Diffuser Scan / 10')
@@ -177,7 +180,7 @@ plt.plot(a, R_parr, '-', label='Theoriekurve (manueller Fit)')
 plt.plot(a, R_G, '-', label=r'(Reflektivitätsscan - Diffuser Scan)$\cdot G$')
 plt.plot(a[i_peaks], R_G[i_peaks], 'kx', label='Oszillationsminima',alpha=0.8)
 # plt.plot(a[peaks_mask],R_fit, '--', label='Peaks Curve Fit')
-plt.xlabel(r'$\alpha_i \:/\: \si{\degree}$')
+plt.xlabel(r'$\alpha_\text{i} \:/\: \si{\degree}$')
 plt.ylabel(r'$R$')
 plt.yscale('log')
 plt.legend(loc='upper right',prop={'size': 8})
