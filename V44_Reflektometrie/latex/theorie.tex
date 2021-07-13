@@ -28,6 +28,7 @@ Wie bereits besprochen ist hier unterhalb eines bestimmten kritischen Winkels $\
 Dieser Winkel ist näherungsweise gegeben durch
 \begin{equation}
     \alpha _\text{c} \approx \sqrt{2 \cdot \delta} = \lambda  \cdot \sqrt{\frac{r_\text{e} \cdot \rho}{\pi}} \, .
+    \label{eq:a_c}
 \end{equation}
 
 In den Fresnelschen-Gleichungen wird zudem die Polarisation der Wellen betrachtet.
@@ -73,6 +74,16 @@ So werden die kritischen Winkel $\alpha _\text{c}$ aus dem Plot bestimmt.
 berechnen werden.
 Hierbei ist $\Delta \alpha _\text{i}$ der Abstand der Minima der Kiessig-Oszillation im Plot.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/parratt_algorithmus.png}
+    \caption{Mehrschichtsystem mit $N + 1$ Schichten verschiedener Brechungsindizes und $N$ Grenzflächen,
+    wobei \enquote{Schicht} 1 das Vakuum und \enquote{Schicht} $N + 1$ das Substrat sind. Für jede
+    Schicht sind die Amplituden der transmittierten und reflektierten Wellen, $T_j$ und $R_j$ an den
+    Grenzflächen eingezeichnet.\cite{V44old}}
+    \label{fig:parrat}
+\end{figure}
+
 Sollte es noch weitere Schichten geben, werden die Oszillationen überlagert und es ist kompliziert etwas über die einzelnen Schichten auszusagen.
 Dafür gibt es den sogenannten Parratt-Algorithmus, dieser basiert auf einem rekursiven Durchlaufen durch alle Schichten.
 Angefangen wird dabei mit der untersten Schicht.
@@ -89,10 +100,10 @@ Hierbei ist
     k_\text{z,j} = k \cdot \sqrt{n_\text{j}^2 -  {\cos{\alpha _\text{i}}}^2}
     \label{eq:k}
 \end{equation}
-die $z$-Komponente des j-ten Wellenvektors und 
+die $z$-Komponente des j-ten Wellenvektors $k = \frac{2 \pi}{\lambda}$ und 
 \begin{equation}
     r_\text{j,j+1} = \frac{k_\text{z,j} - k_\text{z,j+1}}{k_\text{z,j} + k_\text{z,j+1}} \,.
-    \label{eq:k}
+    \label{eq:r}
 \end{equation}
 
 \subsubsection{Rauigkeit}
@@ -107,9 +118,10 @@ Diese Rauigkeit ist gegeben als
 Dabei ist $P_\text{j}(z)$ die Wahrscheinlichkeit, dass die j-te Grenzfläche im Intervall $\left(z_\text{j} + z,\, z_\text{j} + z + dz  \right) $ liegt.
 Mit Hilfe der "root-mean-square“ (rms) – Rauigkeit werden die Fresnelkoeffizienten zu 
 \begin{align}
-    \bar{r} _\text{j,j+1} =& \, r_\text{j,j+1} \cdot \exp\left(  - 2 \, k_\text{z,j} \,  k_\text{z,j+1} \, {\sigma _\text{j}}^2  \right) \\
+    \bar{r} _\text{j,j+1} =& \, r_\text{j,j+1} \cdot \exp\left(  - 2 \, k_\text{z,j} \,  k_\text{z,j+1} \, {\sigma _\text{j}}^2  \right) 
+    \label{eq:r_modifiziert} \\
     \bar{t} _\text{j,j+1} =& \, t_\text{j,j+1} \cdot \exp\left(  (k_\text{z,j} - k_\text{z,j+1})^2 \, \frac{{\sigma _\text{j}}^2}{2}  \right)
-    \label{eq:modifiziert}
+    \label{eq:t_modifiziert}
 \end{align}
 modifiziert.
 Diese können dann im Parratt-Algorithmus verwendet werden, ansonsten bleibt die Rechnung die gleiche.
@@ -130,11 +142,20 @@ Vor dem Detektor befindet sich ebenfalls eine Blende, die den Ausfallswinkel $\a
 
 Allerdings gibt es eine zusätzliche Bedingung für den Einfallswinkel.
 Erst ab einem genügend großen Winkel $\alpha_\text{g}$ wird der gesamte Strahl tatsächlich reflektiert.
-Dafür wird der Geometriefaktor $G$ 
+Dieser Geometriewinkel lässt sich über 
 \begin{equation}
-    G = \frac{D \cdot \sin{\alpha _\text{i}}}{d_\text{0}}
+    \alpha_\text{g} = \arcsin\left(\frac{d_0}{D}\right)
+    \label{eq:a_g}
+\end{equation}
+berechnen und führt zu einem Geometriefaktor $G$ der zu
+\begin{equation}
+    G = 
+    \begin{cases}
+        \frac{D \cdot \sin{\alpha _\text{i}}}{d_\text{0}} & \text{für } \alpha_\text{i} < \alpha_\text{g} \\
+        1 & \text{für } \alpha_\text{i} \geq \alpha_\text{g}
+    \end{cases}
     \label{eq:geo}
 \end{equation}
-definiert.
-Dabei ist $d_\text{0}$ die Gesamtstrahlbreite und $D \cdot \sin{\alpha _\text{i}}$ die Strahlbreite, die tatsächlich auf die Probe trifft.
+definiert wird.
+Dabei ist $d_0$ die Gesamtstrahlbreite und $D \cdot \sin{\alpha _\text{i}}$ die Strahlbreite, die tatsächlich auf die Probe trifft, wobei $D$ die Probenlänge ist.
 Damit wäre ein $G$ von 1 optimal, allerdings wird das in diesem Versuch nicht immer realisiert.
