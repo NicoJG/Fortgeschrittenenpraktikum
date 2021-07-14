@@ -1,12 +1,66 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-\begin{align}
-    \alpha _\text{c,PS} &= \SI{0.153}{\degree} \\
-    \alpha _\text{c,SI} &= \SI{0.223}{\degree}
-\end{align}
+Alle durchgeführten Scans zur Justierung entsprechen unseren Erwartungen.
+Auffällig ist jedoch, dass sich die Geometriewinkel
+\begin{align*}
+    \alpha_\text{g,gemessen} &= \SI{0.70}{\degree} \\
+    \alpha_\text{g,Theorie} &= \SI{0.63}{\degree}
+\end{align*}
+so stark voneinander unterscheiden. 
+Eine mögliche Erklärung ist, dass die Probe eventuell nicht perfekt in der X-/Y-Ebene ausgerichtet war.
+Eine andere Erklärung ist, dass die Strahlbreite $d_0$ und die Probenlänge $D$ nicht exakt genug gemessen wurden.
 
-\begin{align}
-    \delta _\text{c,PS} &= \num{3.5e-6} \\
-    \delta _\text{c,SI} &= \num{7.6e-6}
-\end{align}
+In der Messung der Reflektivität (\autoref{fig:plot_messung}) sind die Kiessig-Oszillationen klar zu erkennen.
+Die Kurve der idealen Fresnelreflektivität von Si stimmt aber nur in der Größenordnung mit der Messung überein.
+Der Parratt-Algorithmus lies sich ab einem bestimmten Winkel gut für die Messung verwenden, 
+aber die Parameter ließen sich nicht so anpassen, dass die ganze Kurve mit den Messdaten übereinstimmt.
+
+Die ermittelten Schichtdicken der Polystyrolschicht
+\begin{align*}
+    d_\text{PS,Minima} &= \SI{8.82+-0.31e-8}{\meter} \\
+    d_\text{PS,Parratt} &= \SI{8.55e-8}{\meter}
+\end{align*}
+stimmen miteinander überein und die wahre Schichtdicke scheint in diesem Bereich zu liegen.
+
+Die ermittelten Dispersionen und die Literaturwerte sind
+\begin{align*}
+    \delta_\text{PS,gemessen} &= \num{0.5e-6} \\
+    \delta_\text{PS,Literatur} &= \num{3.5e-6} \\
+    \delta_\text{Si,gemessen} &= \num{6.75e-6} \\
+    \delta_\text{Si,Literatur} &= \num{7.6e-6}
+\end{align*}
+und sie stimmen in der Größenordnung überein, aber zeigen deutliche Abweichungen.\cite{V44old}
+Die Dispersion von Silizium konnte dabei genauer gemessen werden.
+Die geringe gemessene Dispersion von Polystyrol ist darauf zurückzuführen, 
+dass die Kiessig-Oszillationen eine sehr geringe Amplitude gezeigt haben.
+Woher diese Amplitudenabschwächung kommt, bleibt aber unklar.
+
+Die berechneten kritischen Winkel und deren Literaturwerte sind
+\begin{align*}
+    \alpha_\text{c,PS,gemessen} &= \SI{0.057}{\degree} \\
+    \alpha_\text{c,PS,Literatur} &= \SI{0.153}{\degree} \\
+    \alpha_\text{c,Si,gemessen} &= \SI{0.211}{\degree} \\
+    \alpha_\text{c,Si,Literatur} &= \SI{0.223}{\degree}
+\end{align*} 
+und zeigen leichte Abweichungen.
+Die gemessenen kritischen Winkel zeigen in \autoref{fig:plot_messung} eine gute Übereinstimmung mit den Einbrüchen in der Intensität.
+Besonders der kritische Winkel von Polystyrol ist nicht gut bestimmt worden.
+Da $\alpha_\text{c}$ aber aus $\delta$ berechnet wurde, ist dies nicht verwunderlich.
+
+Die ermittelten Rauigkeiten
+\begin{align*}
+    \sigma_\text{Luft,PS} &= \SI{8.0e-10}{\meter} \\
+    \sigma_\text{PS,Si} &= \SI{6.3e-10}{\meter}
+\end{align*}
+können mit keinem Wert verglichen werden.
+Allerdings ist anzunehmen, dass $\sigma_\text{PS,Si}$ recht genau sein sollte, 
+da dieser Parameter einen großen Einfluss auf die Kurve des Parratt-Algorithmus hatte 
+und die sonstigen Parameter von Silizium gut mit den Vergleichswerten übereinstimmen.
+Der Parameter $\sigma_\text{Luft,PS}$ hatte hingegen keinen großen Einfluss auf die Kurve und konnte nicht genau bestimmt werden.
+
+Allgemein war die Anpassung des Parratt-Algorithmus eher ungenau und es ist möglich, 
+dass eine andere Zusammenstellung von Parametern eine bessere Anpassung der Theoriekurve an die Messdaten hätte.
+Dass der diffuse Scan so geringe Intensitäten hatte und die Amplituden der Kiessig-Oszillationen so gering sind,
+weist auf einen systematischen Fehler während der Messung hin.
+Die Ursache dieses Fehlers kann allerdings nicht näher bestimmt werden.
