@@ -5,12 +5,12 @@
 \label{ssec:Justierung}
 
 Zunächst werden sowohl der Detektor als auch die Probe im Detektor durch verschiedene Scans justiert.
-Hieraus ergeben sich Konstanten die zur Auswertung der eigentlichen Röntgenreflektometrie benötigt werden.
+Hieraus ergeben sich Konstanten, die zur Auswertung der eigentlichen Röntgenreflektometrie benötigt werden.
 
 \subsubsection{Detektorscan}
 \label{sssec:Detektorscan}
 
-Wie in der Durchführung beschrieben, wird zuerst ein \enquote{Detektorscan} durchgeführt, also ein winkelabhängiger Scan ohne die Probe.
+Wie in der Durchführung beschrieben, wird zuerst ein Detektorscan durchgeführt, also ein winkelabhängiger Scan ohne die Probe.
 Das Ergebnis dieses Scans ist in \autoref{fig:plot_detektorscan} zu sehen. 
 
 \begin{figure}
@@ -20,11 +20,11 @@ Das Ergebnis dieses Scans ist in \autoref{fig:plot_detektorscan} zu sehen.
     \label{fig:plot_detektorscan}
 \end{figure}
 
-Außerdem wird eine Gaußfunktion der Form
+An diesen Scan wird eine Gaußfunktion der Form
 \begin{equation}
     I(\alpha) = \frac{a}{\sqrt{2 \cdot \pi \cdot \sigma^2}} \cdot \exp\left(-\frac{(x - \mu)^2}{2 \cdot \sigma^2}\right) + b
 \end{equation}
-mithilfe der Funktion \textit{curve\_fit} aus der Python Bibliothek SciPy an die Messdaten angepasst.
+mithilfe der Funktion \textit{curve\_fit} aus der Python Bibliothek SciPy angepasst.\cite{scipy}
 Damit ergeben sich die Parameter 
 \begin{align*}
     a &= \num{1.892+-0.038e+05} \\
@@ -43,8 +43,8 @@ So ergeben sich
 \subsubsection{Z-Scan}
 \label{sssec:Z-Scan}
 
-Aus dem ersten durchgeführten \enquote{Z-Scan}, der in \autoref{fig:plot_zscan} zu sehen ist,
-wird die Strahlbreite $d_0$ bestimmt, als der Abstand von maximaler zu minimaler Intensität.
+Aus dem ersten durchgeführten Z-Scan, der in \autoref{fig:plot_zscan} zu sehen ist,
+wird die Strahlbreite $d_0$ als der Abstand von maximaler zu minimaler Intensität bestimmt.
 
 \begin{figure}
     \centering
@@ -61,7 +61,7 @@ Hier ergibt sich eine Strahlbreite von
 \subsubsection{Rockingscan}
 \label{sssec:Rockingscan}
 
-Aus dem ersten durchgeführten \enquote{Rockingscan}, der in \autoref{fig:plot_rockingscan} zu sehen ist,
+Aus dem ersten durchgeführten Rockingscan, der in \autoref{fig:plot_rockingscan} zu sehen ist,
 wird der Geometriewinkel $\alpha_\text{g}$ bestimmt.
 
 \begin{figure}
@@ -85,8 +85,6 @@ der Geometriewinkel über \autoref{eq:a_g} zu
     \alpha_\text{g,Theorie} = \SI{0.63}{\degree}
 \end{equation*}
 berechnet werden. 
-
-% IN DISKUSSION VERGLEICHEN!
 
 \subsection{Messung des Reflektivitätsscans und Bestimmung des Dispersionsprofils}
 \label{ssec:Messung}
@@ -125,7 +123,7 @@ Diese wird über \autoref{eq:reflek} und dem Literaturwert $\alpha_\text{c,Si} =
 Um aus dem korrigierten Reflektivitätsscan die Schichtdicke der Polystyrolschicht der Probe zu bestimmen,
 werden die Abstände $\Delta\alpha_\text{i}$ der Minima der Kiessig-Oszillation gemessen.
 Dies wird mithilfe der Funktion \textit{find\_peaks} aus der Python Bibliothek SciPy getan
-und die Minima werden auch in \autoref{fig:plot_messung} eingezeichnet. 
+und die Minima werden auch in \autoref{fig:plot_messung} eingezeichnet.\cite{scipy}
 Anschließend wird der Mittelwert dieser Abstände zu
 \begin{equation*}
     \overline{\Delta\alpha_\text{i}} = \SI{8.73+-0.31e-4}{\,\degree}
@@ -163,8 +161,8 @@ Die in \autoref{fig:plot_messung} gezeigte Theoriekurve ensteht mit den Paramete
 Allerdings muss angemerkt werden, dass $\sigma_1$ nur wenig Einfluss auf die Gestalt der berechneten Reflektivitätskurve hat.
 Außerdem sind diese Parameter aus subjektiver Wahrnehmung entstanden.
 
-Mithilfe den zuvor bestimmten Dispersionen $\delta_\text{PS}$ und $\delta_\text{Si}$ 
-lassen sich nun die Kritischen Winkel $\alpha_\text{c}$ über \autoref{eq:a_c} zu
+Mithilfe der zuvor bestimmten Dispersionen $\delta_\text{PS}$ und $\delta_\text{Si}$ 
+lassen sich nun die kritischen Winkel $\alpha_\text{c}$ über \autoref{eq:a_c} zu
 \begin{align*}
     \alpha_\text{c,PS} &= \SI{0.057}{\degree} \\
     \alpha_\text{c,Si} &= \SI{0.211}{\degree}

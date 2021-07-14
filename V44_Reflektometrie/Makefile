@@ -18,6 +18,7 @@ build/main.pdf: FORCE | build
 	  max_print_line=1048576 \
 	latexmk \
 	  --lualatex \
+	  --shell-escape \
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
