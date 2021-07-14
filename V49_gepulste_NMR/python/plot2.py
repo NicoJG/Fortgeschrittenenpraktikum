@@ -72,11 +72,12 @@ plt.clf()
 
 tau, A3 = np.genfromtxt('data/Diffusion.csv',delimiter=',',skip_header=2,unpack=True)
 
-tau = tau * 10**-3
-A3 = - A3 * 10**-3
+mask = (tau > 1.0) | (tau == 0.3)
+tau = tau[mask] 
+A3 = A3[mask]
 
-print("Tau:", tau)
-print("A:", A3)
+tau = tau * 10**-3
+A3 = A3 * 10**-3
 
 # Ausgleichskurven Funktion (hier Ausgleichsgerade)
 def f(tau,a,b,c):
@@ -87,7 +88,7 @@ def f(tau,a,b,c):
 # c = M1
 
 # Ausgleichskurve berechnen
-params,pcov = curve_fit(f,tau,A3) #,p0=(1,10,1)
+params,pcov = curve_fit(f,tau,A3,p0=(1.25,3*10**5,0.02))
 
 # Parameter
 a = params[0]
@@ -101,18 +102,18 @@ c_err = np.absolute(pcov[2][2])**0.5
 
 # Werte irgendwie ausgeben lassen
 # z.B. mit print, aber besser als JSON Datei abspeichern
-print(f'M0 = {a}+-{a_err}')
-print(f'TD = {b}+-{b_err}')
-print(f'M1 = {c}+-{c_err}')
+#print(f'M0 = {a}+-{a_err}')
+#print(f'TD = {b}+-{b_err}')
+#print(f'M1 = {c}+-{c_err}')
 
 # Plot der Ausgleichskurve
 x_linspace = np.linspace(np.min(tau), np.max(tau), 100)
-plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Ausgleichskurve')
+plt.plot(x_linspace * 10**3 , f(x_linspace,*params), 'k-', label='Exponentieller Fit')
 # Plot der Daten
-plt.plot(tau, A3, 'ro', label='Daten')
+plt.plot(tau * 10**3 , A3, 'ro', label='Amplituden')
 
 # Achsenbeschriftung mit LaTeX (nur wenn matplotlibrc benutzt wird)
-plt.xlabel(r'$\tau \:/\: \si{\second}$')
+plt.xlabel(r'$\tau \:/\: \si{\milli\second}$')
 plt.ylabel(r'$A \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
@@ -129,9 +130,22 @@ plt.savefig('build/plot_Diff3.pdf')
 
 G = 2 * np.pi * 13300 / (268 * 10**6 * 4.4 * 10**-3)
 
-print("G:", G)
+#print("G:", G)
 
-TD = ufloat(57.86,142.52)
+TD = ufloat(b,b_err)
 
 D = (3 * TD)/((268 * 10**6)**2 * G**2 )
-print("D:", D)
+#print("D:", D)
+
+#D: (2.544+/-0.030)e-09
+
+M = 18.015
+NA = 6.022 * 10 **23
+
+print("Radius1:",( M * 0.74/(4/3 * np.pi * NA )  )**(1/3))
+
+D2 = 2.1 * 10**-9
+KB = 1.381 * 10 **-23 
+T = 23.3 + 273.15
+
+print("Radius2: ", (KB * T /( 6 * np.pi *0.001 * D2 )) )
