@@ -44,9 +44,9 @@ T2_err = np.absolute(pcov[2][2])**0.5
 # z.B. mit print, aber besser als JSON Datei abspeichern
 
 
-print(f'M0 = {M0}+-{M0_err}')
-print(f'T2 = {T2}+-{T2_err}')
-print(f'M1 = {M1}+-{M1_err}')
+#print(f'M0 = {M0}+-{M0_err}')
+#print(f'T2 = {T2}+-{T2_err}')
+#print(f'M1 = {M1}+-{M1_err}')
 
 
 # Plot der Ausgleichskurve
