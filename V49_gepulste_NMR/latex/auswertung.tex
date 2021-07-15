@@ -8,7 +8,7 @@ Diese Bibliothek basiert auf der Gauß'schen Fehlerfortpflanzung
     \label{eq:fehlerrechnung}
 \end{equation}
 
-Ziel dieser Auswertung ist es mit Hilfe der gepulsten Kernspinresonanz den Diffusionskoeffizienten $D$ zu errechnen. 
+Ziel dieser Auswertung ist es mit Hilfe der gepulsten Kernspinresonanz den Diffusionskoeffizienten $D$ zu berechnen. 
 Damit diese Berechnung gelingt werden zunächst die beiden Relaxationszeiten $T_1$ und $T_2$ berechnet.
 Als letzte Überprüfung der Auswertung wird der Molekülradius von Wasser über die gemessenen Werte bestimmt.
 
@@ -64,13 +64,12 @@ Dabei ergeben sich die Parameter
     T_1 =& \SI{1.93(12)}{\second} \\
     c =& \SI{0.53(03)}{\volt} \, .
 \end{align*}
-Die Werte aus \autoref{tab:t1} sind in schließlich in \autoref{fig:t1} aufgetragen.
+Die Werte aus \autoref{tab:t1} sind in nachfolgend aufgetragen.
 $T_1$ ist damit direkt aus dem Fit als 
-\begin{equation}
-    T_1 = \SI{1.93(12)}{\second} 
-    \label{eq:t1_wert}
-\end{equation}
-bestimmt.
+\begin{equation*}
+    T_1 = \SI{1.93(12)}{\second}
+\end{equation*}
+bestimmt worden.
 
 \begin{figure}
     \centering
@@ -111,6 +110,18 @@ ergibt.
     \label{fig:t2}
 \end{figure}
 
+Es wurden ebenfalls Oszilloskop-Daten genommen, bei denen die Einstellung "MG" auf "off" stand.
+Das bedeutet, die Messung wurde nicht mit der Meiboom-Gill-Methode durchgeführt.
+Dieser Plot ist nachfolgend in \autoref{fig:mgoff} aufgezeigt.
+Eine Bestimmung von $T_2$ ist aus diesen Messdaten nicht möglich.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_mgoff.pdf}
+    \caption{Messdaten des Oszilloskops ohne Meiboom-Gill-Methode}
+    \label{fig:mgoff}
+\end{figure}
+
 \subsection{Bestimmung des Diffusionskoeffizienten $D$}
 \label{ssec:aus3}
 
@@ -141,10 +152,10 @@ Die Fouriertransformierte ist \autoref{fig:fourier} stark vergrößert, da der D
 \end{figure}
 
 Der Durchmesser des Halbkreises wird etwa als 
-\begin{equation}
+\begin{equation*}
     d_\text{f} = \SI{13300}{\hertz} 
     \label{eq:df}
-\end{equation}
+\end{equation*}
 abgelesen.
 Über FORMEL AUS THEORIE kann dann $G$ 
 \begin{equation}
@@ -159,7 +170,9 @@ Dabei sind
 \end{align*}
 $\gamma _\text{H}$ ist das gyromagnetische Verhältnis von Protonen in Wasser. \cite{physics_constants}
 
-Die Berechnung von $T_\text{D}$ erhalten wir aus einem exponentiellen Fit durch die Messwerte in \autoref{tab:diff}.
+$T_\text{D}$ erhalten wir aus einem exponentiellen Fit durch die Messwerte in \autoref{tab:diff}.
+Hierbei ist wichtig anzumerken, dass es im Intervall $\SI{0.1}{\second}$ bis $\SI{1}{\second}$ noch weitere Werte gab.
+Diese lagen allerdings sehr dicht aneinander und haben den Fit teilweise verfälscht.
 
 \begin{table}
     \centering
@@ -217,7 +230,7 @@ Wird nun die Fit-Funktion mit THEORIEFORMEL verglichen, ergibt sich der folgende
     T_\text{D} = \frac{2 \, b}{\tau ^2} \, . 
     \label{eq:b_td}
 \end{equation}
-Damit ist es nun möglich über THEORIEFORMEL deb Diffusionskoeffizienten $D$ zu berechnen.
+Damit ist es nun möglich über THEORIEFORMEL den Diffusionskoeffizienten $D$ zu berechnen.
 Die Gradientenstärke $G$ haben wir bereits bestimmt und $\gamma _\text{H}$ ist das bekannte gyromagnetische Verhältnis von Protonen.
 Wir erhalten die Formel 
 \begin{equation}
@@ -225,10 +238,10 @@ Wir erhalten die Formel
     \label{eq:diffusion}
 \end{equation}
 Und so ergibt sich 
-\begin{equation}
+\begin{equation*}
     D = \SI{2.533(17)e-9}{\meter\squared\per\second} \, . 
     \label{eq:diffusion_wert}
-\end{equation}
+\end{equation*}
 
 \subsection{Abschließende Berechnung des Molekülradius}
 \label{ssec:aus4}
@@ -239,16 +252,29 @@ Formt man THEORIEFORMEL nach dem Radius $r$ um, ergibt sich
     r =  \frac{K_\text{B} \, T}{6 \, \pi \, \eta \, D } \, .
     \label{eq:stokes}
 \end{equation}
-$\eta$ ist die Viskosität von Wasser $\eta = \SI{1}{\meter\pascal\second} $ und $K_\text{B}$ die Boltzmann-Konstante.
-
-
-
+$\eta$ ist die Viskosität von Wasser $\eta = \SI{1}{\milli\pascal\second} $ und $K_\text{B}$ die Boltzmann-Konstante. \cite{wasser}
+Die Temperatur $T$ wurde vor und nach dem Versuch gemessen, diese sind 
+\begin{align*}
+    T_\text{vor} =& \SI{295.25}{\kelvin} \\
+    T_\text{nach} =& \SI{296.45}{\kelvin} \, .
+\end{align*}
+Da die Bestimmung von $D$ gegen Ende des Versuches stattfand, wird hier $T_\text{nach}$ verwendet.
+Dadurch ergibt sich dann für den Molekülradius von Wasser
+\begin{equation*}
+    r_\text{mess} = \SI{0.857(6)}{\angstrom}  \, .
+    \label{eq:radius1}
+\end{equation*}
 
 Den Vergleichswert berechnen wir über
 \begin{equation}
-    r =  \sqrt{3}{ \left(  \frac{M_\text{W}}{\frac{4}{3} \, \pi \, \rho \, N_\text{A} }  \right)} \, .
+    r =  \sqrt[3]{ \left(  \frac{M_\text{W}}{\frac{4}{3} \, \pi \, \rho \, N_\text{A} }  \right)} \, .
     \label{eq:hexagonal}
 \end{equation}
 Die benötigten Konstanten sind die Molekulardichte von Wasser $\rho _\text{W} = \SI{1}{\gram\per\cubic\centi\meter}$ und die Molmasse von Wasser
-$M _\text{W} = \SI{18.015}{\gram\per\mol}$. \cite{Wasser}
+$M _\text{W} = \SI{18.015}{\gram\per\mol}$. \cite{wasser}
 $N_\text{A}$ ist die Avogadro-Konstante.
+Der Theoriewert ist dann 
+\begin{equation*}
+    r_\text{theorie} = \SI{1.742}{\angstrom}  \, .
+    \label{eq:radius2}
+\end{equation*}

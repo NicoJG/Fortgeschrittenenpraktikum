@@ -1,3 +1,53 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
+\subsection{Vergleich von $T_1$}
+
+Zunächst wird der von uns berechnete Wert für die Spin‐Gitter‐Relaxationszeit $T_1$ mit dem Literaturwert $T_{1,\text{lit}}$ verglichen. \cite{T1}
+Die Werte sind dabei 
+\begin{align*}
+    T_1 =& \SI{1.93(12)}{\second} \\
+    T_{1,\text{lit}} =& \SI{3.15}{\second} \, .
+\end{align*}
+Der Literaturwert entspricht der Relaxationszeit bei einer Temperatur von $T = \SI{20}{\celsius}$, da zu Beginn des Versuches die Temperatur 
+$T = \SI{22.1}{\celsius}$ betrug.
+Die Abweichung von einander ist somit
+\begin{equation}
+    \Delta T_1 = \num{34.92} \% \, .
+\end{equation}
+Das ist eine relativ hohe Abweichung.
+Betrachtet man \autoref{fig:t1}, den Plot der zur Auswertung verwendet wurde, wird auch teilweise klar warum.
+Zu Beginn liegen einige der Messwerte nicht wirklich auf der Fit-Funktion.
+Das liegt vor allem daran, dass die Messwerte kurzzeitig sinken, obwohl das eigentlich nicht passieren dürfte.
+Es ist davon auszugehen, dass hier etwas nicht korrekt funktioniert hat. 
+Diese Werte wurden von einem Oszilloskop abgelesen, weswegen ein systematischer Fehler aufgetreten sein könnte.
+
+\subsection{Diffusionskoeffizient und Molekülradius}
+
+Der Diffusionskoeffizient wird ebenfalls mit einem Literaturwert vergleichen. 
+Da diese Messung gegen Ende stattfand, wird hier der Wert für $T = \SI{25}{\celsius}$ verwendet. \cite{D}
+Die Messwerte für $D$ sind dann
+\begin{align*}
+    D =& \SI{2.533(17)e-9}{\meter\squared\per\second} \\
+    D_\text{lit} =& \SI{2.299e-9}{\meter\squared\per\second} \, .
+\end{align*}
+Damit erhalten wir eine Abweichung von 
+\begin{equation}
+    \Delta D = \num{8.62} \% \, .
+\end{equation}
+Vergleichen mit der vorherigen Abweichung erscheint diese wesentlich genauer zu sein. 
+Das liegt aber auch vor allem daran, dass wir einige sehr schlechte Werte entfernt haben, wie bereits erwähnt. 
+So konnten die Parameter des Fits sehr genau bestimmt werden.
+
+Die letzte Überprüfung der Genauigkeit dieser Messung findet bei der Bestimmung der Molekülradien statt.
+Beide möglichen Werte wurden bereits in der Auswertung bestimmt. 
+Daher wird hier nur die Abweichung 
+\begin{equation}
+    \Delta r = \num{50.46} \% \, .
+\end{equation}
+berechnet.
+Die Abweichung ist offensichtlich recht groß.
+Einerseits war $D$ natürlich eine fehlerbehaftete Größe und somit nicht exakt bestimmt.
+Zudem wurde hier eine Temperatur angegeben, die erst nach der eigentlichen Messung bestimmt worden war.
+Vor allem war die Viskosität $\eta$ aber nicht exakt an die Temperatur angepasst. 
+Die Viskosität ändert sich mit der Temperatur und wir konnten die Viskositätsmessung nicht durchführen.
