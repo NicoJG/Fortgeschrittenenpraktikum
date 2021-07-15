@@ -6,8 +6,9 @@ plots: build/plot_NAME.pdf
 # für jeden zu erstellenden Plot:
 build/plot_NAME.pdf: python/plot1.py data/*.csv | build
 #	python python/plot1.py
-	python python/plot2.py
-	python python/plot3.py
+#	python python/plot2.py
+#	python python/plot3.py
+#	python python/plot4.py
 
 	
 build/main.pdf: plots
