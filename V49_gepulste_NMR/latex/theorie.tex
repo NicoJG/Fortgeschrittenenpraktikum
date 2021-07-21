@@ -115,9 +115,64 @@ Dieser Vorgang heißt Spin-Spin-Releaxation und wird durch die Zeitkonstante $T_
 
 Da es in der Realität nicht möglich ist ein konstantes und homogenes Magnetfeld ohne Ingomogenitäten zu erzeugen,
 sind diese Feldinhomogenitäten mit zu betrachten.
-Aufgrund von \autoref{eq:Larmorfrequenz} und den örtlich unterschiedlichen Feldstärken besitzen nicht alle Kernspins die gleiche Larmorfrequenz.
+Die Feldinhomogenitäten werden durch einen effektive Gradienten $G$ entlang der $z$-Achse beschrieben, 
+sodass die \autoref{eq:Larmorfrequenz} der Larmorfrequenz um eine Korrektur 
+\begin{equation}
+    \delta \nu_0(z) = \frac{\gamma G z}{2\pi}
+    \label{eq:gradient_korrektur}
+\end{equation}
+verändert wird.
 Dies führt dazu, dass die Kernspin-Momente wie bei der Spin-Spin-Relaxation ihre Phasenbeziehung verlieren.
 Der Unterschied liegt jedoch darin, dass diese durch Feldinhomogenitäten verursachte dephasierung reversibel ist, da die Kernspins näherungsweise ihren Ort im Magnetfeld nicht velassen.
+
+\subsection{Diffusionsverhalten einer flüssigen Probe}
+\label{ssec:Diffusionsverhalten}
+
+Aufgrund von Brownscher Molekularbewegung die zu Diffusion der Moleküle führt sind die Inhomogenitäten der Larmorfrequenzen nicht mehr nur
+Ortsabhängig sondern auch zeitabhängig.
+Dies führt zu einer noch schnelleren Relaxation, die irreversibel ist.
+Die Diffusion wird über die Stromdichte 
+\begin{equation}
+    \vec{j} = -D \nabla n
+\end{equation}
+beschrieben wobei $D$ der Diffusionskoeffizient ist und $n$ die Zahl der Teilchen pro Volumeneinheit ist.
+
+Der Diffusionskoeffizient kann über die Einstein-Stokes-Formel
+\begin{equation}
+    D = \frac{k_\text{B} T}{6 \pi \eta r}
+    \label{eq:Einstein_Stokes}
+\end{equation}
+berechnet werden.
+Hier ist $k_\text{B}$ die Boltzmann Konstante, $T$ die Temperatur, $\eta$ die Viskosität und $r$ der Molekülradius.
+
+Die Magnetisierung wird dann über
+\begin{equation}
+    \frac{\symup{d} \vec{M}}{\symup{d} t} = D \Delta \vec{M}
+\end{equation}
+beeinflusst, sodass die Bloch-Gleichungen angepasst werden müssen.
+Außerdem wird das Magnetfeld mit dem Gradienten entlang der $z$-Achse zu
+\begin{equation}
+    \vec{B} = \vec{B}_0 + G z \, .
+\end{equation}
+
+Löst man nun die modifizierten Bloch-Gleichungen, ergibt sich ein die Relaxation in der $xy$-Ebene zu
+\begin{equation}
+    M_{x,y}(t) = M_\infty \exp\left( -\frac{t}{T_2} \right) \exp\left( -\frac{t}{T_\text{D}} \right)
+    \label{eq:TD_relaxation}
+\end{equation}
+mit der Diffusions-Zeitkonstante
+\begin{equation}
+    T_\text{D} = \frac{3}{D \gamma^2 G^2 \tau^2} \, .
+    \label{eq:TD}
+\end{equation}
+
+
+%
+% Formel für T_D Script 3 Seite 16 Gleichung 29
+% G aus Anleitung 5.
+% Script 3: Gleichung 30
+% Duplikat
+% Einstein Stokes Formel Anleitung 2.
 
 \subsection{Messmethoden der gepulsten NMR}
 \label{ssec:Messmethoden}
@@ -156,6 +211,7 @@ Die Amplitude der FID gibt Aufschluss darüber welcher Anteil der Magnetisierung
 Nach den Bloch-Gleichungen sollte die Magnitisierung über
 \begin{equation}
     M_z(t) = M_\infty\left(1-2\exp\left(-\frac{t}{T_1}\right)\right)
+    \label{eq:T1_relaxation}
 \end{equation} 
 relaxieren.
 Dieses Verfahren nennt sich \enquote{inversion recovery} und ist in \autoref{fig:T1_messung} zu sehen.
@@ -178,6 +234,7 @@ Die zuvor auseinanderlaufenden Spins laufen nun wieder aufeinander zu und so ent
 Durch die Höhe des Echos kann die Spin-Spin-Relaxation 
 \begin{equation}
     M_{x,y}(t) = M_{x,y}(t=0) \exp\left(-\frac{t}{T_2}\right)
+    \label{eq:T2_relaxation}
 \end{equation}
 abgelesen werden. Wobei statt $t$ immer nur $2\tau$ betrachtet wird.
 
@@ -197,3 +254,4 @@ dazu führt, dass die Magnetisierung nicht exakt in die $xy$-Ebene gedreht wird 
 Dieses Problem wird gelöst mit der Meiboom-Gill-Methode, in der die $\SI{180}{\degree}$-Pulse um $\SI{90}{\degree}$ zu dem $\SI{90}{\degree}$-Puls ist.
 So ist der Fehler in der Länge des $\SI{90}{\degree}$-Pulses egal und die Fehler der $\SI{180}{\degree}$-Pulse gleichen sich bei jedem zweiten Puls wieder aus.
 Also ergibt sich hier für alle Echos bei $4n\tau$ die korrekte Amplitude und diese können verwendet werden um $T_2$ zu bestimmen.
+
