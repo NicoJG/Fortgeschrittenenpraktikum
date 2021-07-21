@@ -111,7 +111,7 @@ plt.plot(x_linspace, f(x_linspace,*params), 'k-', label='Exponentielle Ausgleich
 plt.plot(tau, A, 'ro', label='Spannung')
 plt.semilogx()
 # Achsenbeschriftung mit LaTeX (nur wenn matplotlibrc benutzt wird)
-plt.xlabel(r'$t \:/\: \si{\second}$')
+plt.xlabel(r'$\tau \:/\: \si{\second}$')
 plt.ylabel(r'$U \:/\: \si{\volt}$')
 
 # in matplotlibrc leider (noch) nicht möglich
