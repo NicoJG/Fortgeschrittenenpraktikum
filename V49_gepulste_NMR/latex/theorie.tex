@@ -40,13 +40,13 @@ Im thermischen Gleichgewicht stellt sich eine makroskopische Magnetisierung $\ve
 \subsection{Magnetisierung in einem magnetischen Wechselfeld}
 \label{ssec:Magnetisierung_wechsel}
 
-Wenn nun zusätzlich zum konstanten und homogenen Magnetfeld $\vec{B}_0 = (0,0,B_0)^T$ ein magnetische Wechselfeld
+Wenn nun zusätzlich zum konstanten und homogenen Magnetfeld $\vec{B}_0 = (0,0,B_0)^T$ ein magnetisches Wechselfeld
 $\vec{B}_1 = (B_1 \sin(\omega_\text{WF} t),B_1 \cos(\omega_\text{WF} t),0)^T$ geschaltet wird, verändert sich die Magnetisierung der Probe.
 Es sollte $\Delta \omega = \omega_0 - \omega_\text{WF} \approx 0$ gewählt werden.
 Dieses Wechselfeld entspricht im Experiment dem gepulsten Wechselfeld, das durch eine Spule um die Probe erzeugt wird.
 
 Es ist sinnvoll in ein rotierendes Koordinatensystem überzugehen, das eine Frequenz $\omega_\text{RKS} = \omega_\text{WF}$ besitzt.
-Hier ergibt sich das gesammte bzw. effektive Magnetfeld zu
+Hier ergibt sich das gesamte bzw. effektive Magnetfeld zu
 \begin{equation}
     \vec{B}_\text{eff} = (0, B_1, B_0 + \frac{\omega_\text{WF}}{\gamma})^T
 \end{equation}
@@ -180,7 +180,7 @@ mit der Diffusions-Zeitkonstante
 \subsubsection{Freier Induktionsfall (FID)}
 \label{sssec:FID}
 
-Mit einem $\SI{90}{\degree}$-Puls wird die Magnetisierung in die in die $xy$-Ebene gekippt.
+Mit einem $\SI{90}{\degree}$-Puls wird die Magnetisierung in die $xy$-Ebene gekippt.
 Nun relaxiert die Magnetisierung im Laborsystem mit 
 \begin{align}
     M_x(t) &= M_\infty \cos(\omega_0 t) \exp\left( -\frac{t}{T_2} \right) \\
@@ -251,7 +251,7 @@ und so weitere Refokussierungen und damit Echos zustande kommen.
 Das Problem der Carr-Purcell-Methode ist, dass eine nicht exakte Länge des $\SI{180}{\degree}$-Pulses
 dazu führt, dass die Magnetisierung nicht exakt in die $xy$-Ebene gedreht wird und so nach jedem Puls ein Fehler aufaddiert wird.
 
-Dieses Problem wird gelöst mit der Meiboom-Gill-Methode, in der die $\SI{180}{\degree}$-Pulse um $\SI{90}{\degree}$ zu dem $\SI{90}{\degree}$-Puls ist.
+Dieses Problem wird gelöst mit der Meiboom-Gill-Methode, in der die $\SI{180}{\degree}$-Pulse um $\SI{90}{\degree}$ versetzt zu dem $\SI{90}{\degree}$-Puls stehen.
 So ist der Fehler in der Länge des $\SI{90}{\degree}$-Pulses egal und die Fehler der $\SI{180}{\degree}$-Pulse gleichen sich bei jedem zweiten Puls wieder aus.
 Also ergibt sich hier für alle Echos bei $4n\tau$ die korrekte Amplitude und diese können verwendet werden um $T_2$ zu bestimmen.
 
