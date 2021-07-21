@@ -52,7 +52,7 @@ Die danach gemessenen Spannungen $U$ sind für verschiedene Werte $\tau$ in \aut
     \end{tabular}
 \end{table}
 
-Anschließend werden diese Werte mit der Fit-Funktion 
+Anschließend werden diese Werte nach \autoref{eq:T1_relaxation} mit der Fit-Funktion
 \begin{equation}
     U(\tau) = a \cdot \exp(\frac{- \tau}{T_1}) + c 
     \label{eq:fit_t1}
@@ -60,44 +60,44 @@ Anschließend werden diese Werte mit der Fit-Funktion
 gefittet.
 Dabei ergeben sich die Parameter 
 \begin{align*}
-    a =& \SI{-1.55(03)}{\volt} \\
-    T_1 =& \SI{1.93(12)}{\second} \\
-    c =& \SI{0.53(03)}{\volt} \, .
+    a &= \SI{-1.55(03)}{\volt} \\
+    T_1 &= \SI{1.93(12)}{\second} \\
+    c &=  \SI{0.53(03)}{\volt} \, .
 \end{align*}
-Die Werte aus \autoref{tab:t1} sind in nachfolgend aufgetragen.
+Die Werte aus \autoref{tab:t1} sind nachfolgend aufgetragen.
 $T_1$ ist damit direkt aus dem Fit als 
 \begin{equation*}
     T_1 = \SI{1.93(12)}{\second}
 \end{equation*}
-bestimmt worden.
+bestimmt.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_T1.pdf}
-    \caption{Plot der Messwerte zur Messsung von $T_1$ mit exponentiellem Fit und logarithmischer X-Achse}
+    \caption{Plot der Messwerte zur Messung von $T_1$ mit exponentiellem Fit und logarithmischer X-Achse}
     \label{fig:t1}
 \end{figure}
 
 \subsection{Bestimmung von \texorpdfstring{$T_2$}{T2}}
 \label{ssec:aus2}
 
-Die vom Oszilloskop aufgenommenen Daten werden ebenfalls geplottet.
+Die Messdaten des Oszilloskops wurden bei $\tau = \SI{11.5}{\milli\second}$ aufgenommen.
 Allerdings sind hier nur die Maxima der Oszillazion für die Auswertung relevant.
-Durch diese wird eine Fit-Funktion 
+Durch diese wird eine Fit-Funktion nach \autoref{eq:T2_relaxation}
 \begin{equation}
-    U(\tau) = a \cdot \exp(\frac{- \tau}{T_2}) + c 
+    U(t) = a \cdot \exp(\frac{- t}{T_2}) + c 
     \label{eq:fit_t2}
 \end{equation}
 gelegt.
 Für diesen Fit werden die Parameter 
 \begin{align*}
-    a =& \SI{0.91(04)}{\per\volt} \\
-    T_2 =& \SI{1.70(16)}{\second} \\
-    c =& \SI{0.08(05)}{\volt} \, .
+    a &= \SI{0.91(04)}{\per\volt} \\
+    T_2 &= \SI{1.70(16)}{\second} \\
+    c &= \SI{0.08(05)}{\volt} \, .
 \end{align*}
 bestimmt.
 Die geplotteten Werte sind dann zusammen mit der Fit-Funktion in \autoref{fig:t2} dargestellt.
-Auch hier die gesuchte Größe einer der gesuchen Parameter, sodass sich 
+Auch hier ist die gesuchte Größe einer der Parameter, sodass sich 
 \begin{equation}
     T_2 = \SI{1.70(16)}{\second} 
     \label{eq:t2_wert}
@@ -106,11 +106,11 @@ ergibt.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_T2.pdf}
-    \caption{Plot der Messwerte zur Messsung von $T_2$ mit exponentiellem Fit}
+    \caption{Plot der Messwerte zur Messung von $T_2$ mit exponentiellem Fit}
     \label{fig:t2}
 \end{figure}
 
-Es wurden ebenfalls Oszilloskop-Daten genommen, bei denen die Einstellung "MG" auf "off" stand.
+Es wurden ebenfalls Oszilloskop-Daten genommen, bei denen die Einstellung \enquote{MG} auf \enquote{off} stand.
 Das bedeutet, die Messung wurde nicht mit der Meiboom-Gill-Methode durchgeführt.
 Dieser Plot ist nachfolgend in \autoref{fig:mgoff} aufgezeigt.
 Eine Bestimmung von $T_2$ ist aus diesen Messdaten nicht möglich.
@@ -125,7 +125,7 @@ Eine Bestimmung von $T_2$ ist aus diesen Messdaten nicht möglich.
 \subsection{Bestimmung des Diffusionskoeffizienten \texorpdfstring{$D$}{D}}
 \label{ssec:aus3}
 
-Zur erfolgreichen Berechung von $D$ über GLEICHUNG VON NICO werden die Gradiantenstärke $G$ und die Zeitkonstante $T_\text{D}$ benötigt. 
+Zur erfolgreichen Berechung von $D$ über \autoref{eq:TD} werden die Gradiantenstärke $G$ und die Zeitkonstante $T_\text{D}$ benötigt. 
 Diese beiden Größen werden im Folgenden bestimmt.
 
 Für die Berechnung der Gradiantenstärke $G$ wird das Oszillatorbild des Echos zunächst in \autoref{fig:echo} dargestellt.
@@ -157,7 +157,7 @@ Der Durchmesser des Halbkreises wird etwa als
     \label{eq:df}
 \end{equation*}
 abgelesen.
-Über FORMEL AUS THEORIE kann dann $G$ 
+Über \autoref{eq:gradient_korrektur} kann dann $G$ 
 \begin{equation}
     G = \frac{2 \pi \cdot d_\text{f}}{\gamma _\text{H} \cdot d} = \SI{0.071}{\tesla\per\meter}
     \label{eq:g_wert}
@@ -165,8 +165,8 @@ abgelesen.
 berechnet werden.
 Dabei sind
 \begin{align*}
-    \gamma _\text{H} =& \, \SI{268e6}{\radian\per\second\per\tesla} \\
-    d =& \, \SI{4.4}{\milli\meter} \, . 
+    \gamma _\text{H} &=  \SI{268e6}{\radian\per\second\per\tesla} \\
+    d &=  \SI{4.4}{\milli\meter} \, . 
 \end{align*}
 $\gamma _\text{H}$ ist das gyromagnetische Verhältnis von Protonen in Wasser. \cite{physics_constants}
 
@@ -213,24 +213,24 @@ durchgeführt.
 Hierbei ist $T_2$ der oben berechnete Wert.
 Die Parameter, die sich dabei ergeben sind 
 \begin{align*}
-    a =& \SI{1.236(3)}{\per\volt} \\
-    b =& \SI{304556.538(2050836)}{\per\cubic\second} \\
-    c =& \SI{0.033(2)}{\volt} \, .
+    a &= \SI{1.236(3)}{\per\volt} \\
+    b &= \SI{304556.538(2050836)}{\per\cubic\second} \\
+    c &= \SI{0.033(2)}{\volt} \, .
 \end{align*}
 Es ergibt sich der Plot in \autoref{fig:diff}, wobei der Fit in Basiseinheiten durchgeführt wurde.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot_Diff3.pdf}
-    \caption{Plot der Messwerte zur Messsung von $D$ mit exponentiellem Fit}
+    \caption{Plot der Messwerte zur Messung von $D$ mit exponentiellem Fit}
     \label{fig:diff}
 \end{figure}
 
-Wird nun die Fit-Funktion mit THEORIEFORMEL verglichen, ergibt sich der folgende Zusammenhang,
+Wird nun die Fit-Funktion mit \autoref{eq:TD_relaxation} verglichen, ergibt sich der folgende Zusammenhang,
 \begin{equation}
-    T_\text{D} = \frac{2 \, b}{\tau ^2} \, . 
+    T_\text{D} = \frac{1}{\tau ^2 \cdot b} \, . 
     \label{eq:b_td}
 \end{equation}
-Damit ist es nun möglich über THEORIEFORMEL den Diffusionskoeffizienten $D$ zu berechnen.
+Damit ist es nun möglich über \autoref{eq:TD} den Diffusionskoeffizienten $D$ zu berechnen.
 Die Gradientenstärke $G$ haben wir bereits bestimmt und $\gamma _\text{H}$ ist das bekannte gyromagnetische Verhältnis von Protonen.
 Wir erhalten die Formel 
 \begin{equation}
@@ -247,16 +247,16 @@ Und so ergibt sich
 \label{ssec:aus4}
 
 Der Molekülradius von Wasser wird über die Einstein-Stokes-Formel berechnet.
-Formt man THEORIEFORMEL nach dem Radius $r$ um, ergibt sich 
+Formt man \autoref{eq:Einstein_Stokes} nach dem Radius $r$ um, ergibt sich 
 \begin{equation}
-    r =  \frac{K_\text{B} \, T}{6 \, \pi \, \eta \, D } \, .
+    r =  \frac{k_\text{B} \, T}{6 \, \pi \, \eta \, D } \, .
     \label{eq:stokes}
 \end{equation}
-$\eta$ ist die Viskosität von Wasser $\eta = \SI{1}{\milli\pascal\second} $ und $K_\text{B}$ die Boltzmann-Konstante. \cite{wasser}
+$\eta$ ist die Viskosität von Wasser $\eta = \SI{1}{\milli\pascal\second} $ und $k_\text{B}$ die Boltzmann-Konstante. \cite{wasser}
 Die Temperatur $T$ wurde vor und nach dem Versuch gemessen, diese sind 
 \begin{align*}
-    T_\text{vor} =& \SI{295.25}{\kelvin} \\
-    T_\text{nach} =& \SI{296.45}{\kelvin} \, .
+    T_\text{vor} &= \SI{295.25}{\kelvin} \\
+    T_\text{nach} &= \SI{296.45}{\kelvin} \, .
 \end{align*}
 Da die Bestimmung von $D$ gegen Ende des Versuches stattfand, wird hier $T_\text{nach}$ verwendet.
 Dadurch ergibt sich dann für den Molekülradius von Wasser
