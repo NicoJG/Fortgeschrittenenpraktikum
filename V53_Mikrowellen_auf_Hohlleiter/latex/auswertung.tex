@@ -71,42 +71,38 @@ b) und c) sind jeweils die Spannungen und Frequenzen bei halber Amplitude, recht
 \end{table}
 
 Über die Differenz von $f_c$ und $f_b$ kann nun die elektronische Bandbreite $F$ als 
-\begin{equation}
+\begin{equation*}
     F = \SI{48}{\mega\hertz}
-    \label{eq:bandbreite}
-\end{equation}
+\end{equation*}
 berechnet werden.
 Über die Bandbreite kann ein weiterer Wert bestimmt werden, die Abstimm-Empfindlichkeit
-\begin{equation}
+\begin{equation*}
     \frac{F}{A_c - A_b} = \SI{2000}{\hertz\per\volt}
-    \label{eq:abstimm}
-\end{equation}
+\end{equation*}
 
 \subsection{Frequenzmessung}
 \label{ssec:a2}
 
-Die zur Frequenzbestimmung benötigten Werte sind in \autoref{eq:freq} notiert.
+Die zur Frequenzbestimmung benötigten Werte sind im Folgenden notiert.
 Hierbei sind $m_1$ und $m_2$ die auf dem Messgerät abgelesenen Abstände.
 $f$ ist die eingestellte Frequenz, die es gleich zu bestätigen gilt.
-\begin{align}
-    f =& \SI{9027}{\mega\hertz} \\
-    m_1 =& \SI{53.2}{\milli\meter} \\
-    m_2 =& \SI{78.4}{\milli\meter} \\
-    a =& \SI{22.8}{\milli\meter}
-    \label{eq:freq}
-\end{align}
+\begin{align*}
+    f &= \SI{9027}{\mega\hertz} \\
+    m_1 &= \SI{53.2}{\milli\meter} \\
+    m_2 &= \SI{78.4}{\milli\meter} \\
+    a &= \SI{22.8}{\milli\meter}
+\end{align*}
 $a$ ist die vorgegebene Innenabmessung des Hohlleiters.
-Mit diesen Werten kann nun über FORMEL FÜR F die Frequenz berechnet werden, wobei 
+Mit diesen Werten kann nun über \autoref{eq:frequenz} die Frequenz berechnet werden, wobei 
 \begin{equation}
     \lambda _\text{g} = 2 \cdot (m_2 - m_1)= \SI{50.4}{\milli\meter}
     \label{eq:welle}
 \end{equation}
 die Wellenlänge im Hohlleiter ist.
 Damit erhalten wir eine Frequenz $f$
-\begin{equation}
+\begin{equation*}
     f = \SI{8872}{\hertz} \, .
-    \label{eq:frequenz}
-\end{equation}
+\end{equation*}
 
 \subsection{Die Dämpfungskurve}
 \label{ssec:a3}
@@ -137,9 +133,9 @@ Nun werden diese Werte nun in einem Plot dargestellt.
 Durch die Theoriekurve wurde eine Curve-Fit Parabel der Form \autoref{eq:mode_fit} gelegt.
 Die entstandenen Parameter sind 
 \begin{align*}
-    a =& \SI{1.749+-0.134}{\per\decibel} \\
-    b =& (0.403 \pm 0.316) \\
-    c =& \SI{-0.031+-0.173}{\decibel} \, .
+    a &= \SI{1.749+-0.134}{\per\decibel} \\
+    b &= (0.403 \pm 0.316) \\
+    c &= \SI{-0.031+-0.173}{\decibel} \, .
 \end{align*}
 Es fällt auf, dass die Messwerte nicht mit der Theoriekurve übereinstimmen.
 Zwischen den Mess- und  Theoriewerten liegt eine Differenz von etwa $\SI{12.1}{\decibel}$.
@@ -182,35 +178,32 @@ In \autoref{tab:swr} sind die direkt bestimmtem Werte des SWR-Meters notiert, so
 \subsubsection{$\SI{3}{dB}$-Methode}
 \label{sssec:a6}
 
-Die gemesseenen Werte der $\SI{3}{dB}$-Methode sind in \autoref{eq:3db} aufgelistet.
+Die gemesseenen Werte der $\SI{3}{dB}$-Methode sind nachfolgend aufgelistet.
 Dabei sind $m_1$ und $m_2$ jeweils die gemessenen Abstände der Maxima.
 Aus diesen kann über die bekannte Relation \autoref{eq:welle} die Hohlleiterwellenlänge $\lambda _\text{g}$ erneut bestimmt werden.
 
-\begin{align}
-    d_1 =& \SI{63.5}{\milli\meter} \\
-    d_2 =& \SI{61.8}{\milli\meter} \\
-    m_1 =& \SI{67.0}{\milli\meter} \\
-    m_2 =& \SI{90.8}{\milli\meter} \\
-    \lambda _\text{g} =& \SI{47.6}{\milli\meter} \, .
-    \label{eq:3db}
-\end{align}
+\begin{align*}
+    d_1 &= \SI{63.5}{\milli\meter} \\
+    d_2 &= \SI{61.8}{\milli\meter} \\
+    m_1 &= \SI{67.0}{\milli\meter} \\
+    m_2 &= \SI{90.8}{\milli\meter} \\
+    \lambda _\text{g} &= \SI{47.6}{\milli\meter} \, .
+\end{align*}
 
-Nun kann das Stehwellenverhältnis $S_2$ über GLEICHUNG IN THEORIE bestimmt werden.
+Nun kann das Stehwellenverhältnis $S_2$ über \autoref{eq:3dB_Methode} bestimmt werden.
 Es ergibt sich
 \begin{equation*}
-    S_2 = 8.987 \, .
+    S_2 = \num{8.987} \, .
 \end{equation*}
 
 \subsubsection{Abschwächer-Methode}
 \label{sssec:a7}
 
 Für die Abschwächer-Methode werden am Dämpfungsglied zwei verschiedene Einstellungen $A_1$ und $A_2$ benötigt.
-Beide Einstellungen sind in \autoref{eq:absch} notiert. 
-Das entsprechende Stehwellenverhältnis $S_3$ ergibt sich dann über GLEICHUNG AUS THEORIE.
+Das entsprechende Stehwellenverhältnis $S_3$ ergibt sich dann über \autoref{eq:Abschwächer_Methode}.
 
-\begin{align}
-    A_1 =& \SI{20.0}{\decibel} \\
-    A_2 =& \SI{43.0}{\decibel} \\
-    S_3 =& 47.6 \, .
-    \label{eq:absch}
-\end{align}
+\begin{align*}
+    A_1 &= \SI{20.0}{\decibel} \\
+    A_2 &= \SI{43.0}{\decibel} \\
+    S_3 &= 47.6 \, .
+\end{align*}
