@@ -9,20 +9,22 @@ Aber Mikrowellen haben noch deutlich mehr Anwendungsgebiete:
     \item jegliche Art der kabellosen Kommunikation. (Mobilfunk, WLAN, Bluetooth,...)
     \item Radartechnik
     \item Navigation über GPS
-    \item Radio astronomy
+    \item Radioastronomie
     \item Spektroskopie
     \item ...
 \end{itemize}
 
-Das Wort \enquote{Mikrowellen} ist allerdings irreführend, da die Wellenlänge von elektromagnetische Strahlung in der Größenordnung Mikrometer 
+Das Wort \enquote{Mikrowellen} ist allerdings irreführend, da die Wellenlänge von elektromagnetischer Strahlung in der Größenordnung Mikrometer 
 Infrarot-Strahlung ist.
 Mikrowellen-Strahlung liegt hingegen im Wellenlängenbereich von Millimeter bis Meter bzw. einem Frequenzbereich von $\SI{300}{\mega\hertz}$ bis $\SI{300}{\giga\hertz}$.
-Und die \enquote{Mikro} in Mikrowellen steht eher für klein als für die Größenordnung.
+Und das \enquote{Mikro} in Mikrowellen steht eher für klein als für die Größenordnung.
+
+Für die nahezu dispersionsfreie Übertragung von Mikrowellen werden Hohlleiter verwendet.
 
 \subsection{Erzeugung von Mikrowellen mittels eines Reflexklystrons}
 \label{ssec:Erzeugung}
 
-Um Mikrowellen-Strahlung mit einer hohen Intensität erzeugen zu können, hat man ein sogenanntes Klystron entwickelt um hochfrequente Signale verstärken zu können.
+Um Mikrowellen-Strahlung mit einer hohen Intensität erzeugen zu können, hat man ein sogenanntes Klystron entwickelt.
 Da diese Klystrons allerdings groß sind, wurden sie zum sogenannten Reflexklystron weiterentwickelt.
 Die Funktionsweise des Reflexklystrons ist sehr ähnlich zum Klystron und lässt sich besser am Klystron erklären.
 Beide Geräte sind in \autoref{fig:wiki_klystron} schematisch dargestellt.
@@ -47,7 +49,7 @@ Beide Geräte sind in \autoref{fig:wiki_klystron} schematisch dargestellt.
 
 Elektronen werden von einer Glühkathode aus beschleunigt. 
 Diese treten dann in einen \enquote{Buncher} Hohlraum ein.
-In diesem Hohlraum schwingt ein elektrisches, annähernd homogenes Feld in Parallel zur Bewegungsrichtung der Elektronen.
+In diesem Hohlraum schwingt ein elektrisches, annähernd homogenes Feld parallel zur Bewegungsrichtung der Elektronen.
 Diese Schwingung wird durch ein Eingangssignal angeregt und der Hohlraum funktioniert auf dem Prinzip eines RC-Schwingkreises,
 wobei in der Mitte ein Kondensator und außen eine Art Spule mit einer Windung ist.
 Durch das schwingende elektrische Feld werden die Elektronen unterschiedlich stark beschleunigt oder abgebremst (Geschwindigkeitsmodulation)
@@ -65,9 +67,9 @@ müssen die Beschleunigungsspannung, die Reflektorspannung und die Abmessungen d
 so angepasst werden, dass eine maximale Ausgangsleistung erreicht wird.
 Eine optimale Flugdauer der Elektronen ist 
 \begin{equation}
-    \tau = T_0 (n+3/4) \, ,
+    \tau = T_0 (N+3/4) \, ,
 \end{equation}
-wobei $T_0$ die Resonanzfrequenz des Hohlraums ist und $n$ eine natürliche Zahl (oder 0) ist und eine Mode kennzeichnet.
+wobei $T_0$ die Periodenlänge bei Resonanz des Hohlraums ist und $N$ eine natürliche Zahl (oder 0) ist.
 Wie sich Amplitude und Frequenz des Ausgangssignals durch die Reflektorspannung verändert ist in \autoref{fig:modulation} zu sehen.
 
 \begin{figure}
@@ -136,7 +138,7 @@ Es ist definiert über das Verhältnis der Feldstärken
 und wird auch als Welligkeit bezeichnet.
 
 Eine Größe, die damit in Verbindung steht ist der Spannungs-Reflexionskoeffizient $\rho$.
-Dieser ist definiert über das verhältnis von reflektierter zu einlaufender Feldstärke 
+Dieser ist definiert über das Verhältnis von reflektierter zu einlaufender Feldstärke 
 und hängt mit $S$ über
 \begin{equation}
     | \rho | = \frac{S-1}{S+1}

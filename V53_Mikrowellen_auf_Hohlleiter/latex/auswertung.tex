@@ -95,11 +95,11 @@ $f$ ist die eingestellte Frequenz, die es gleich zu bestätigen gilt.
 $a$ ist die vorgegebene Innenabmessung des Hohlleiters.
 Mit diesen Werten kann nun über \autoref{eq:frequenz} die Frequenz berechnet werden, wobei 
 \begin{equation}
-    \lambda _\text{g} = 2 \cdot (m_2 - m_1)= \SI{50.4}{\milli\meter}
+    \lambda _\text{H} = 2 \cdot (m_2 - m_1)= \SI{50.4}{\milli\meter}
     \label{eq:welle}
 \end{equation}
 die Wellenlänge im Hohlleiter ist.
-Damit erhalten wir eine Frequenz $f$
+Damit erhalten wir eine Frequenz
 \begin{equation*}
     f = \SI{8872}{\hertz} \, .
 \end{equation*}
@@ -115,7 +115,7 @@ Dieser Zusammenhang ist ebenfalls in \autoref{tab:dämpfung} aufgezeigt.
     \centering
     \caption{Messwerte und Werte des Herstellers für die Dämpfungskurve}
     \label{tab:dämpfung}
-    \begin{tabular}{S[table-format=1.0] S[table-format=1.2] S[table-format=1.2]}
+    \begin{tabular}{S[table-format=2.0] S[table-format=1.2] S[table-format=1.2]}
         \toprule
         \tableSI{\text{SWR-Ausschlag}}{\decibel} & \tableSI{d}{\milli\meter} & \tableSI{d_\text{theorie}}{\milli\meter} \\
         \midrule
@@ -163,7 +163,7 @@ In \autoref{tab:swr} sind die direkt bestimmtem Werte des SWR-Meters notiert, so
     \centering
     \caption{Messwerte des SWR in Abhängigkeit der Tiefe des Gleitschraubentransformators}
     \label{tab:swr}
-    \begin{tabular}{S[table-format=1.0] S[table-format=1.2]}
+    \begin{tabular}{S[table-format=1.0] S[table-format=2.2]}
         \toprule
         \tableSI{d}{\milli\meter} & \text{SWR} \\
         \midrule
@@ -175,20 +175,24 @@ In \autoref{tab:swr} sind die direkt bestimmtem Werte des SWR-Meters notiert, so
     \end{tabular}
 \end{table}
 
-\subsubsection{$\SI{3}{dB}$-Methode}
+\subsubsection{\texorpdfstring{$\SI{3}{\decibel}$}{3dB}-Methode}
 \label{sssec:a6}
 
-Die gemesseenen Werte der $\SI{3}{dB}$-Methode sind nachfolgend aufgelistet.
-Dabei sind $m_1$ und $m_2$ jeweils die gemessenen Abstände der Maxima.
-Aus diesen kann über die bekannte Relation \autoref{eq:welle} die Hohlleiterwellenlänge $\lambda _\text{g}$ erneut bestimmt werden.
+Die gemesseenen Werte der $\SI{3}{\decibel}$-Methode sind nachfolgend aufgelistet
 
 \begin{align*}
     d_1 &= \SI{63.5}{\milli\meter} \\
     d_2 &= \SI{61.8}{\milli\meter} \\
     m_1 &= \SI{67.0}{\milli\meter} \\
-    m_2 &= \SI{90.8}{\milli\meter} \\
-    \lambda _\text{g} &= \SI{47.6}{\milli\meter} \, .
+    m_2 &= \SI{90.8}{\milli\meter} \, .
 \end{align*}
+
+Dabei sind $m_1$ und $m_2$ jeweils die gemessenen Abstände der Maxima.
+Aus diesen Werten kann über die bekannte Relation aus \autoref{eq:welle} die Hohlleiterwellenlänge $\lambda _\text{H}$ erneut bestimmt werden.
+So ergibt sich 
+\begin{equation*}
+    \lambda _\text{H} = \SI{47.6}{\milli\meter} \, .
+\end{equation*}
 
 Nun kann das Stehwellenverhältnis $S_2$ über \autoref{eq:3dB_Methode} bestimmt werden.
 Es ergibt sich
