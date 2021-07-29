@@ -101,8 +101,20 @@ Mit diesen Werten kann nun über \autoref{eq:frequenz} die Frequenz berechnet we
 die Wellenlänge im Hohlleiter ist.
 Damit erhalten wir eine Frequenz
 \begin{equation*}
-    f = \SI{8872}{\hertz} \, .
+    f = \SI{8872}{\mega\hertz} \, .
 \end{equation*}
+Nun ist es möglich über
+\begin{equation}
+    v_\text{p} = \lambda \cdot f
+    \label{eq:phasengeschw}
+\end{equation}
+die Phasengeschwindigkeit der Welle $v_\text{p}$ im Hohlleiter zu bestimmen.
+Damit ergibt sich 
+\begin{equation*}
+    v_\text{p} _\text{H} =  \SI{4471148800}{\meter\per\second} = \num{1.49} \cdot c \, .
+\end{equation*}
+Die Phasengeschwindigkeit ist somit größer als die Lichtgeschwindigkeit im Vakuum.
+Das stellt keiner Problem dar, da die Gruppengeschwindigkeit einer Welle der alleinige Träger der Informationen ist.
 
 \subsection{Die Dämpfungskurve}
 \label{ssec:a3}
@@ -158,6 +170,8 @@ Diese sind nachfolgend aufgeführt.
 \label{sssec:a5}
 
 In \autoref{tab:swr} sind die direkt bestimmtem Werte des SWR-Meters notiert, sowie die Einstellung des Gleitschraubentransformators.
+Hierbei ist anzumerken, dass der Messwert bei der Tiefe $\SI{9}{\milli\meter}$ mit der zusätzlichen Einstellung \enquote{Expand} gemessen wurde.
+Ansonsten war das SWR-Meter außerhalb der benutzten Skala.
 
 \begin{table}
     \centering
@@ -209,5 +223,5 @@ Das entsprechende Stehwellenverhältnis $S_3$ ergibt sich dann über \autoref{eq
 \begin{align*}
     A_1 &= \SI{20.0}{\decibel} \\
     A_2 &= \SI{43.0}{\decibel} \\
-    S_3 &= 47.6 \, .
+    S_3 &= \num{14.125} \, .
 \end{align*}
