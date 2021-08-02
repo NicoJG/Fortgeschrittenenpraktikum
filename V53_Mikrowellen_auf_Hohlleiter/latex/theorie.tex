@@ -19,12 +19,12 @@ Infrarot-Strahlung ist.
 Mikrowellen-Strahlung liegt hingegen im Wellenlängenbereich von Millimeter bis Meter bzw. einem Frequenzbereich von $\SI{300}{\mega\hertz}$ bis $\SI{300}{\giga\hertz}$.
 Und das \enquote{Mikro} in Mikrowellen steht eher für klein als für die Größenordnung.
 
-Für die nahezu dispersionsfreie Übertragung von Mikrowellen werden Hohlleiter verwendet.
+Für die nahezu verlustarme Übertragung von Mikrowellen werden Hohlleiter verwendet.
 
 \subsection{Erzeugung von Mikrowellen mittels eines Reflexklystrons}
 \label{ssec:Erzeugung}
 
-Um Mikrowellen-Strahlung mit einer hohen Intensität erzeugen zu können, hat man ein sogenanntes Klystron entwickelt.
+Um Mikrowellen-Strahlung mit einer hohen Intensität erzeugen zu können, wurde ein sogenanntes Klystron entwickelt.
 Da diese Klystrons allerdings groß sind, wurden sie zum sogenannten Reflexklystron weiterentwickelt.
 Die Funktionsweise des Reflexklystrons ist sehr ähnlich zum Klystron und lässt sich besser am Klystron erklären.
 Beide Geräte sind in \autoref{fig:wiki_klystron} schematisch dargestellt.
@@ -47,21 +47,19 @@ Beide Geräte sind in \autoref{fig:wiki_klystron} schematisch dargestellt.
     \label{fig:wiki_klystron}
 \end{figure}
 
-Elektronen werden von einer Glühkathode aus beschleunigt. 
+Elektronen werden von einer Glühkathode beschleunigt. 
 Diese treten dann in einen \enquote{Buncher} Hohlraum ein.
 In diesem Hohlraum schwingt ein elektrisches, annähernd homogenes Feld parallel zur Bewegungsrichtung der Elektronen.
 Diese Schwingung wird durch ein Eingangssignal angeregt und der Hohlraum funktioniert auf dem Prinzip eines RC-Schwingkreises,
 wobei in der Mitte ein Kondensator und außen eine Art Spule mit einer Windung ist.
 Durch das schwingende elektrische Feld werden die Elektronen unterschiedlich stark beschleunigt oder abgebremst (Geschwindigkeitsmodulation)
-und es entstehen auf dem Weg zum nächsten Hohlraum \enquote{Bunches}, also Häufungen von Elektronen. (Dichtemodulation)
-
+und es entstehen auf dem Weg zum nächsten Hohlraum \enquote{Bunches}, also Häufungen von Elektronen (Dichtemodulation).
 In dem \enquote{Catcher} Hohlraum sollten die Elektronbunches genau so ankommen, dass sie die Resonanzfrequenz des Hohlraums treffen und dort die Schwingung anregen.
 Da allerdings hier die Elektronen sehr stark abgebremst werden, wird viel Energie in die angeregte Schwingung abgegeben 
 und das so erzeugte Ausgangssignal hat eine deutlich höher Intensität als das Eingangssignal.
 
-Beim Reflexklystron erfüllt ein Hohlraum beide soeben beschriebenen Funktionen und die Elektronen werden durch einen Reflektor in den gleichen Hohlraum zurückgeleitet.
+Beim Reflexklystron erfüllt ein Hohlraum beide beschriebenen Funktionen und die Elektronen werden durch einen Reflektor in den gleichen Hohlraum zurückgeleitet.
 Die so entstandene Schwingung kann z.B. über einen Draht oder einen Hohlleiter ausgekoppelt werden.
-
 Da die Elektronen zum richtigen Zeitpunkt und in Bunches auf dem Rückweg wieder im Hohlraum ankommen müssen, 
 müssen die Beschleunigungsspannung, die Reflektorspannung und die Abmessungen des Hohlraums
 so angepasst werden, dass eine maximale Ausgangsleistung erreicht wird.
@@ -69,8 +67,8 @@ Eine optimale Flugdauer der Elektronen ist
 \begin{equation}
     \tau = T_0 (N+3/4) \, ,
 \end{equation}
-wobei $T_0$ die Periodenlänge bei Resonanz des Hohlraums ist und $N$ eine natürliche Zahl (oder 0) ist.
-Wie sich Amplitude und Frequenz des Ausgangssignals durch die Reflektorspannung verändert ist in \autoref{fig:modulation} zu sehen.
+wobei $T_0$ die Periodenlänge bei Resonanz des Hohlraums ist und $N$ eine natürliche Zahl (einschließlich 0) ist.
+Wie sich Amplitude und Frequenz des Ausgangssignals durch die Reflektorspannung verändert, ist in \autoref{fig:modulation} zu sehen.
 
 \begin{figure}
     \centering
@@ -82,16 +80,16 @@ Wie sich Amplitude und Frequenz des Ausgangssignals durch die Reflektorspannung 
 \subsection{Mikrowellen auf Hohlleitern}
 \label{ssec:Hohlleiter}
 
-Eine Möglichkeit Wellen über eine große Strecke mit nahezu keiner Dispersion zu übertragen sind Hohlleiter.
+Eine Möglichkeit, Wellen über eine große Strecke mit nahezu keiner Dispersion zu übertragen, sind Hohlleiter.
 Im Fall von elektromagnetischer Strahlung werden als Hohlleiter Metallrohre verwendet, die meistens Luft enthalten und einen rechteckigen Querschnitt haben.
-Dadurch, dass die Welle an den Wänden reflektiert wird entsteht in der $xy$-Ebene eine stehende Welle, wenn die $z$-Richtung die Ausbreitungsrichtung ist.
+Dadurch, dass die Welle an den Wänden reflektiert wird, entsteht in der $xy$-Ebene eine stehende Welle, wenn die $z$-Richtung die Ausbreitungsrichtung ist.
 
 Wir beschränken uns hier auf die Betrachtung von rechteckigen Hohlleitern mit den Kantenlängen $a$ ($x$-Achse) und $b$ ($y$-Achse).
-Außerdem definieren wir o.B.d.A $a \geq b$.
+Außerdem definieren wir o.B.d.A. $a \geq b$.
 Die Wellen im Hohlleiter können verschiedene Formen annehmen. 
-Diese Form wird als Modus bezeichnet und durch die Zahlen $m,n \in \mathbb{N}_0$ gekennzeichnet, je nachdem wie viele Wellenbäuche in die $x$- oder $y$-Richtung liegen.
-Außerdem können entweder das elektrische, das magnetische oder beide Felder senkrecht zur Ausbreitungsrichtung stehen.
-Ein Modus wird so eindeutig über $\symup{TE}_{m,n}$, $\symup{TM}_{m,n}$ oder $\symup{TEM}_{m,n}$ gekennzeichnet. 
+Diese Form wird als Modus bezeichnet und durch die Zahlen $m,n \in \mathbb{N}_0$ gekennzeichnet je nach Anzahl der Wellenbäuche, die in $x$- oder $y$-Richtung liegen.
+Außerdem kann entweder das elektrische oder das magnetische Feld senkrecht zur Ausbreitungsrichtung stehen.
+Ein Modus wird so eindeutig über $\symup{TE}_{m,n}$ oder $\symup{TM}_{m,n}$ gekennzeichnet. 
 Ein Beispiel-Modus ist in \autoref{fig:hohlleiter_TE10} zu sehen.
 
 \begin{figure}
@@ -101,12 +99,12 @@ Ein Beispiel-Modus ist in \autoref{fig:hohlleiter_TE10} zu sehen.
     \label{fig:hohlleiter_TE10}
 \end{figure}
 
-Schickt man nun eine elektromagnetische Welle mit der Wellenlänge $\lambda_0$ durch so einen Hohlleiter,
+Werden elektromagnetische Wellen mit der Wellenlänge $\lambda_0$ durch einen Hohlleiter geleitet,
 dann vergrößert sich diese Wellenlänge zu
 \begin{equation}
     \lambda_\text{H} = \frac{\lambda_0}{ \sqrt{ 1 - \left( \frac{\lambda_0}{\lambda_\text{G}} \right)^2 } } \, ,
 \end{equation}
-wobei $\lambda_\text{H}$ die Wellenlänge im Hohlleiter ist und $\lambda_\text{G}$ die kleinstmögliche Wellenlänge bzw. die Grenzwellenlänge im Hohlleiter ist.
+wobei $\lambda_\text{H}$ die Wellenlänge im Hohlleiter ist und $\lambda_\text{G}$ die größte Wellenlänge ist, die noch in den Hohlleiter passt, sie wird auch Grenzwellenlänge genannt.
 Diese Grenzwellenlänge kann über
 \begin{equation}
     \lambda_\text{G} = \frac{2}{ \sqrt{ \left( \frac{m}{a} \right)^2 + \left( \frac{n}{b} \right)^2 } }
@@ -161,19 +159,19 @@ In diesem Versuch wird ein SWR-Messer verwendet, der das Stehwellenverhältnis d
 \subsubsection{\texorpdfstring{$\SI{3}{\decibel}$-Messmethode}{3dB-Messmethode}}
 \label{sssec:3dB_Messmethode}
 
-Eine Methode die Spannungsüberlastung des SWR-Messers zu umgehen ist die $\SI{3}{\decibel}$-Methode.
+Eine Methode, die Spannungsüberlastung des SWR-Messers zu umgehen, ist die $\SI{3}{\decibel}$-Methode.
 Anstatt das Minimum und das Maximum der Spannung zu messen, 
 wird hier nur die doppelte Spannung des Minimums gemessen.
 Diese Werte der Spannung müssen allerdings an zwei aufeinander folgenden Stellen gemessen werden 
-und mit dem Abstand $\Delta d$ kann dann das Stehwellenverhältnis über
+und mit dem Abstand $\symup{\Delta} d$ kann dann das Stehwellenverhältnis über
 \begin{equation}
-    S = \sqrt{1 + \sin^{-2}\left( \frac{\pi \cdot \Delta d}{\lambda_\text{H}} \right)}
+    S = \sqrt{1 + \sin^{-2}\left( \frac{\pi \cdot \symup{\Delta} d}{\lambda_\text{H}} \right)}
     \label{eq:3dB_Methode}
 \end{equation}
 bestimmt werden.
 Diese Gleichung kann zu 
 \begin{equation}
-    S = \frac{\lambda_\text{H}}{\pi \cdot \Delta d}
+    S = \frac{\lambda_\text{H}}{\pi \cdot \symup{\Delta} d}
     \label{eq:3dB_Methode_genähert}
 \end{equation}
 genähert werden, wenn $S \gtrsim 10$ ist.
@@ -181,12 +179,13 @@ genähert werden, wenn $S \gtrsim 10$ ist.
 \subsubsection{Abschwächer-Messmethode}
 \label{sssec:Abschwächer_Messmethode}
 
-Der verwendete SWR-Detektor zeigt ein quadratisches Verhalten solange die Ausgangsspannung zur Eingangsspannung proportional ist.
-Eine Möglichkeit das Stehwellenverhältnis zu messen, wenn dies nicht der Fall ist, ist die Abschwächer-Methode.
+Die verwendete Halbleiter-Diode im Detektor zeigt nur in einem bestimmten Spannungsbereich das typische quadratische Verhalten der Diodenkennlinie.
+Wenn die Spannungen zu hohe Werte annehmen, können die zuvor genannten Methoden nicht mehr benutzt werden.
+Eine Möglichkeit dieses Problem zu lösen und trotzdem das Stehwellenverhältnis zu messen ist die Abschwächer-Methode.
 Das Signal wird hier durch ein Dämpfungsglied zwischen Generator und Messleitung so abgeschwächt, dass das Maximum gerade so hoch ist wie das Minimum vor der Abschwächung.
-Mit der Differenz $\Delta A$ eingestellten Dämpfungen vor und nach der Abschwächung kann dann das Stehwellenverhältnis über
+Mit der Differenz $\symup{\Delta} A$ eingestellten Dämpfungen vor und nach der Abschwächung kann dann das Stehwellenverhältnis über
 \begin{equation}
-    S = 10^{\frac{\Delta A}{20}}
+    S = 10^{\frac{\symup{\Delta} A}{20}}
     \label{eq:Abschwächer_Methode}
 \end{equation}
 berechnet werden.
